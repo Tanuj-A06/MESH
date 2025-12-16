@@ -1,47 +1,74 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Squares from "../components/Squares";
 
 const Landing = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="relative w-screen h-screen bg-[#060606] overflow-hidden">
       
-      {/* Background layer */}
+      {/* Background */}
       <div className="fixed inset-0 z-0">
         <Squares
           direction="diagonal"
-          speed={0.4}
-          squareSize={50}
+          speed={0.5}
+          squareSize={40}
           borderColor="#333"
           hoverFillColor="#222"
         />
       </div>
 
-      {/* Text layer (does NOT block mouse interactions) */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full pointer-events-none text-center">
+      {/* Foreground content */}
+      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center pointer-events-none">
         
-        {/* Move text slightly upward */}
-        <div className="-translate-y-18">
-          
-          {/* Main heading */}
-          <h1
-            className="text-white text-8xl tracking-widest drop-shadow-[0_0_20px_rgba(255,255,255,0.15)]"
+        <h1
+          className="text-white text-8xl tracking-widest"
+          style={{ fontFamily: "Sekuya, sans-serif" }}
+        >
+          MESH
+        </h1>
 
-            style={{ fontFamily: "Sekuya, sans-serif" }}
+        <p
+          className="mt-4 text-gray-400"
+          style={{ fontFamily: "Anta, sans-serif" }}
+        >
+          Match minds. Build teams. Ship faster.
+        </p>
+
+        {/* Buttons */}
+        <div className="mt-6 flex gap-4 pointer-events-auto">
+          <button
+            onClick={() => navigate("/about")}
+            className="
+              px-6 py-2
+              text-sm font-medium
+              text-white
+              border border-white/40
+              rounded-full
+              hover:bg-white hover:text-black
+              transition
+            "
           >
-            MESH
-          </h1>
+            About
+          </button>
 
-          {/* Subheading */}
-          <p
-            className="mt-4 text-lg text-gray-400"
-            style={{ fontFamily: "Anta, sans-serif" }}
+          <button
+            onClick={() => navigate("/login")}
+            className="
+              px-6 py-2
+              text-sm font-medium
+              text-black
+              bg-white
+              rounded-full
+              hover:bg-gray-200
+              transition
+            "
           >
-            Match minds. Build teams. Ship faster.
-          </p>
-
+            Login
+          </button>
         </div>
       </div>
-
     </div>
   );
 };
