@@ -1,0 +1,6 @@
+# Folders
+venv
+node_modules
+
+.env
+*.env
