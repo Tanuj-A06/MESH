@@ -36,15 +36,20 @@ html, body {
 }
 .mesh-title {
   font-family: 'Sekuya', sans-serif;
-  font-size: 82px;
+  font-size: 112px;
   letter-spacing: 0.08em;
   color: white;
 }
 
 .mesh-subtitle {
   font-family: 'Anta', sans-serif;
-  font-size: 18px;
-  margin-top: 80px;
+  font-size: 144px;
+  margin-top: 0px;
   color: #aaa;
 }
+
+
+
+
+
 
