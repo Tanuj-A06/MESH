@@ -7,7 +7,7 @@ export default function Login() {
         Login
       </h1>
 
-      {/* Body text (Anta automatically) */}
+      {/* Body text - Anta  */}
       <p className="text-gray-400">
         Sign in to continue.
       </p>
