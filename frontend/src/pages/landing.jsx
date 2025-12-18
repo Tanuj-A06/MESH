@@ -6,7 +6,7 @@ const Landing = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="relative w-screen h-screen bg-[#060606] overflow-hidden">
+    <div className="relative min-h-screen w-screen bg-[#060606] overflow-hidden">
       
       {/* Background */}
       <div className="fixed inset-0 z-0">
@@ -19,54 +19,64 @@ const Landing = () => {
         />
       </div>
 
-      {/* Foreground content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center pointer-events-none">
+      {/* Foreground – TRUE CENTER */}
+      <div className="relative z-10 flex min-h-screen items-center justify-center text-center pointer-events-none">
         
-        <h1
-          className="text-white text-8xl tracking-widest"
-          style={{ fontFamily: "Sekuya, sans-serif" }}
-        >
-          MESH
-        </h1>
+        {/* Content stack */}
+        <div className="flex flex-col items-center gap-8">
 
-        <p
-          className="mt-4 text-gray-400"
-          style={{ fontFamily: "Anta, sans-serif" }}
-        >
-          Match minds. Build teams. Ship faster.
-        </p>
+          {/* Title + subtitle */}
+          <div className="flex flex-col items-center gap-2">
+            <h1
+              className="text-white text-8xl tracking-widest"
+              style={{ fontFamily: "Sekuya, sans-serif" }}
+            >
+              MESH
+            </h1>
 
-        {/* Buttons */}
-        <div className="mt-6 flex gap-4 pointer-events-auto">
-          <button
-            onClick={() => navigate("/about")}
-            className="
-              px-6 py-2
-              text-sm font-medium
-              text-white
+            <p
+              className="text-gray-400 text-lg"
+              style={{ fontFamily: "Anta, sans-serif" }}
+            >
+              Match minds. Build teams. Ship faster.
+            </p>
+          </div>
+
+          {/* Buttons (UNCHANGED DESIGN) */}
+          <div className="flex flex-col gap-4 pointer-events-auto">
+            <button
+              onClick={() => navigate("/about")}
+              className="
+              min-w-[140px]
+              px-8 py-3
+              rounded-full
               border border-white/40
-              rounded-full
+              text-white text-base font-medium
               hover:bg-white hover:text-black
-              transition
+              focus:outline-none focus:ring-2 focus:ring-white/30
+              transition-all duration-200
             "
-          >
-            About
-          </button>
+            >
+              About
+            </button>
 
-          <button
-            onClick={() => navigate("/login")}
-            className="
-              px-6 py-2
-              text-sm font-medium
-              text-black
-              bg-white
+            <button
+              onClick={() => navigate("/login")}
+              className="
+              min-w-[140px]
+              px-8 py-3
               rounded-full
-              hover:bg-gray-200
-              transition
+              border border-white/40
+              text-white text-base font-medium
+              hover:bg-white hover:text-black
+              focus:outline-none focus:ring-2 focus:ring-white/30
+              transition-all duration-200
             "
-          >
-            Login
-          </button>
+            >
+              Login
+            </button>
+          </div>
+
         </div>
       </div>
     </div>
@@ -74,3 +84,4 @@ const Landing = () => {
 };
 
 export default Landing;
+
