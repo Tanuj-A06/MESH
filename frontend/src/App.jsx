@@ -1,14 +1,25 @@
 import { Routes, Route } from "react-router-dom";
-import Landing from "./pages/Landing.jsx";
-import About from "./pages/About.jsx";
-import Login from "./pages/Login.jsx";
+import Background from "./components/Background";
+
+import Landing from "./pages/Landing";
+import About from "./pages/About";
+import Login from "./pages/Login";
 
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Landing />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/login" element={<Login />} />
-    </Routes>
+    <div className="relative min-h-screen bg-[#060606] overflow-hidden">
+      
+      {/* Background layer */}
+      <Background />
+
+      {/* Page content */}
+      <div className="relative z-10">
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </div>
+    </div>
   );
 }
