@@ -8,6 +8,8 @@ import Login from "./pages/login";
 import Primary from "./pages/Primary";
 import Secondary from "./pages/Secondary"; // ✅ ADD
 import Matches from "./pages/Matches";
+import Chat from "./pages/Chat";
+
 
 export default function App() {
   return (
@@ -20,7 +22,8 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
           <Route path="/matches" element={<Matches />} />
-
+          <Route path="/chat" element={<Chat />} />
+ 
           <Route
             path="/primary" 
             element={
