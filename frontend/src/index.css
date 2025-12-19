@@ -1,5 +1,8 @@
 @import "tailwindcss";
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=BBH+Bogle&display=swap");
 /* =========================
    GLOBAL BASE STYLES
    ========================= */
@@ -81,4 +84,9 @@ body {
   font-family: "Anta", sans-serif;
   font-size: 18px;
   color: #aaa;
+}
+
+
+.font-heading {
+  font-family: "BBH Bogle", sans-serif;
 }

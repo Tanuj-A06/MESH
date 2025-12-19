@@ -7,6 +7,7 @@ import About from "./pages/About";
 import Login from "./pages/login";
 import Primary from "./pages/Primary";
 import Secondary from "./pages/Secondary"; // ✅ ADD
+import Matches from "./pages/Matches";
 
 export default function App() {
   return (
@@ -18,9 +19,10 @@ export default function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/matches" element={<Matches />} />
 
           <Route
-            path="/primary"
+            path="/primary" 
             element={
               <ProtectedRoute>
                 <Primary />
