@@ -6,7 +6,7 @@ import Landing from "./pages/landing";
 import About from "./pages/About";
 import Login from "./pages/login";
 import Primary from "./pages/Primary";
-import Secondary from "./pages/Secondary"; // ✅ ADD
+import Secondary from "./pages/Secondary";
 import Matches from "./pages/Matches";
 import Chat from "./pages/Chat";
 
@@ -21,8 +21,24 @@ export default function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/matches" element={<Matches />} />
-          <Route path="/chat" element={<Chat />} />
+          
+          <Route
+            path="/matches"
+            element={
+              <ProtectedRoute>
+                <Matches />
+              </ProtectedRoute>
+            }
+          />
+          
+          <Route
+            path="/chat"
+            element={
+              <ProtectedRoute>
+                <Chat />
+              </ProtectedRoute>
+            }
+          />
  
           <Route
             path="/primary" 
@@ -33,7 +49,6 @@ export default function App() {
             }
           />
 
-          {/* ✅ THIS WAS MISSING */}
           <Route
             path="/secondary"
             element={
