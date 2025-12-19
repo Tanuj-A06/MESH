@@ -5,17 +5,16 @@ import { useNavigate } from "react-router-dom";
 export default function Login() {
   const navigate = useNavigate();
 
-  const handleSuccess = (credentialResponse) => {
-    if (!credentialResponse?.credential) {
-      console.log("Login failed: no credential");
-      return;
-    }
+const handleSuccess = (credentialResponse) => {
+  if (!credentialResponse?.credential) return;
 
-    const decoded = jwtDecode(credentialResponse.credential);
-    console.log("User:", decoded);
+  const decoded = jwtDecode(credentialResponse.credential);
+  localStorage.setItem("user", JSON.stringify(decoded));
 
-    navigate("/landing");
-  };
+  navigate("/primary"); // ✅ START PROFILE FLOW
+};
+
+
 
   return (
     <>
