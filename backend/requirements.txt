@@ -10,3 +10,7 @@ python-decouple
 channels
 channels-redis
 daphne
+PyJWT
+google-auth
+google-auth-oauthlib
+websockets
