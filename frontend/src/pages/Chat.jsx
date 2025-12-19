@@ -50,7 +50,7 @@ export default function Chat() {
                     ? "bg-gradient-to-br from-purple-600 to-pink-600 rounded-br-sm"
                     : "bg-white/10 rounded-bl-sm"
                 }`}
-              >
+              >``
                 {msg.text}
               </div>
             </div>
