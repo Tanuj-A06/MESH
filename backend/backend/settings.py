@@ -37,7 +37,7 @@ SECRET_KEY = config('SECRET_KEY', default='django-insecure-vjqdz(v^py!%3gl$ac#a-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=True, cast=bool)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1,mesh-qenw.onrender.com').split(',')
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='mesh-qenw.onrender.com').split(',')
 
 
 # Application definition
@@ -173,7 +173,23 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:5173",
 ]
 
+# Add production frontend URL from environment variable
+FRONTEND_URL = config('FRONTEND_URL', default='')
+if FRONTEND_URL:
+    CORS_ALLOWED_ORIGINS.append(FRONTEND_URL)
+
 CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
 
 # Channel Layers Configuration for WebSockets
 CHANNEL_LAYERS = {
