@@ -143,13 +143,13 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen text-[#fbeda5] px-12 py-16">
-      <div className="max-w-4xl mx-auto">
-        <div className="flex items-center justify-between mb-6">
-          <h1 className="text-3xl font-semibold text-[#fa6d80]">Dashboard</h1>
-          <div className="flex gap-2">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex items-center justify-between mb-8">
+          <h1 className="text-4xl font-semibold text-[#fa6d80]">Dashboard</h1>
+          <div className="flex gap-4">
             <button
               onClick={() => setTab("primary")}
-              className={`px-4 py-2 rounded-full ${
+              className={`px-6 py-3 rounded-full font-medium ${
                 tab === "primary" ? "bg-[#deeb24] text-black" : "bg-[#425765]/50 text-[#fbeda5] hover:bg-[#5cc8c7]/20"
               }`}
             >
@@ -157,7 +157,7 @@ export default function Dashboard() {
             </button>
             <button
               onClick={() => setTab("secondary")}
-              className={`px-4 py-2 rounded-full ${
+              className={`px-6 py-3 rounded-full font-medium ${
                 tab === "secondary" ? "bg-[#deeb24] text-black" : "bg-[#425765]/50 text-[#fbeda5] hover:bg-[#5cc8c7]/20"
               }`}
             >
@@ -169,83 +169,104 @@ export default function Dashboard() {
         {message && <p className="text-sm text-[#deeb24] mb-4">{message}</p>}
 
         {tab === "primary" && (
-          <div className="rounded-2xl bg-[#425765]/80 border border-[#5cc8c7]/10 p-8">
-            <div className="space-y-4">
-              <label className="block text-sm text-gray-300">Full name</label>
-              <input name="name" value={primaryForm.name} onChange={handlePrimaryChange} className="w-full rounded-xl bg-[#5cc8c7]/20 border border-[#5cc8c7]/30 px-4 py-2 text-[#fbeda5]" />
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-              <input name="age" type="number" value={primaryForm.age} onChange={handlePrimaryChange} placeholder="Age" className="rounded-xl bg-[#5cc8c7]/20 border border-[#5cc8c7]/30 px-4 py-2 text-[#fbeda5]" />
-              <input name="institution" value={primaryForm.institution} onChange={handlePrimaryChange} placeholder="Institution" className="md:col-span-2 rounded-xl bg-[#5cc8c7]/20 border border-[#5cc8c7]/30 px-4 py-2 text-[#fbeda5]" />
-            </div>
-
-            <div className="mt-6">
-              <h3 className="text-lg font-medium">Skills you have</h3>
-              <SkillSelect selected={primaryForm.skillsHave} setSelected={(s) => setPrimaryForm((p) => ({ ...p, skillsHave: s }))} />
-            </div>
-
-            <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-              <input name="github" value={primaryForm.links.github} onChange={handlePrimaryChange} placeholder="GitHub" className="rounded-xl bg-[#5cc8c7]/20 border border-[#5cc8c7]/30 px-4 py-2 text-[#fbeda5]" />
-              <input name="x" value={primaryForm.links.x} onChange={handlePrimaryChange} placeholder="X (Twitter)" className="rounded-xl bg-[#5cc8c7]/20 border border-[#5cc8c7]/30 px-4 py-2 text-[#fbeda5]" />
-              <input name="portfolio" value={primaryForm.links.portfolio} onChange={handlePrimaryChange} placeholder="Portfolio" className="rounded-xl bg-[#5cc8c7]/20 border border-[#5cc8c7]/30 px-4 py-2 text-[#fbeda5]" />
-            </div>
-
-            <div className="mt-6">
-              <h3 className="text-sm text-gray-300 mb-2">Developer type</h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                {developerTypes.map((type) => (
-                  <button
-                    key={type.value}
-                    onClick={() => setPrimaryForm((p) => ({ ...p, developerType: type.value }))}
-                    className={`px-4 py-2 rounded-xl ${primaryForm.developerType === type.value ? "border-[#fa6d80] bg-[#fa6d80]/20 text-[#fbeda5]" : "border-[#5cc8c7]/10 bg-[#425765]/40 text-[#deeb24] hover:border-[#5cc8c7]/30"}`}
-                  >
-                    {type.label}
-                  </button>
-                ))}
+          <div className="rounded-2xl bg-[#425765]/80 border border-[#5cc8c7]/10 p-12">
+            <div className="space-y-8">
+              <div className="space-y-3">
+                <label className="block text-lg font-medium text-[#fbeda5]">Full name</label>
+                <input name="name" value={primaryForm.name} onChange={handlePrimaryChange} className="w-full rounded-xl bg-[#5cc8c7]/20 border border-[#5cc8c7]/30 px-6 py-4 text-[#fbeda5] text-lg" />
               </div>
-            </div>
 
-            <div className="mt-6 flex justify-between">
-              <button
-                onClick={() => navigate("/matches")}
-                className="px-6 py-3 rounded-xl bg-[#425765]/50 text-[#fbeda5] hover:bg-[#5cc8c7]/20"
-              >
-                ← Back
-              </button>
-              <button onClick={savePrimary} disabled={loading} className="px-6 py-3 rounded-xl bg-[#deeb24] text-black">{loading?"Saving...":"Save"}</button>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="space-y-3">
+                  <label className="block text-lg font-medium text-[#fbeda5]">Age</label>
+                  <input name="age" type="number" min="0" value={primaryForm.age} onChange={handlePrimaryChange} placeholder="Age" className="w-full rounded-xl bg-[#5cc8c7]/20 border border-[#5cc8c7]/30 px-6 py-4 text-[#fbeda5] text-lg" />
+                </div>
+                <div className="space-y-3 md:col-span-2">
+                  <label className="block text-lg font-medium text-[#fbeda5]">Institution</label>
+                  <input name="institution" value={primaryForm.institution} onChange={handlePrimaryChange} placeholder="Institution" className="w-full rounded-xl bg-[#5cc8c7]/20 border border-[#5cc8c7]/30 px-6 py-4 text-[#fbeda5] text-lg" />
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <h3 className="text-2xl font-semibold text-[#fbeda5]">Skills you have</h3>
+                <SkillSelect selected={primaryForm.skillsHave} setSelected={(s) => setPrimaryForm((p) => ({ ...p, skillsHave: s }))} />
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="space-y-3">
+                  <label className="block text-lg font-medium text-[#fbeda5]">GitHub</label>
+                  <input name="github" value={primaryForm.links.github} onChange={handlePrimaryChange} placeholder="GitHub" className="w-full rounded-xl bg-[#5cc8c7]/20 border border-[#5cc8c7]/30 px-6 py-4 text-[#fbeda5] text-lg" />
+                </div>
+                <div className="space-y-3">
+                  <label className="block text-lg font-medium text-[#fbeda5]">X (Twitter)</label>
+                  <input name="x" value={primaryForm.links.x} onChange={handlePrimaryChange} placeholder="X (Twitter)" className="w-full rounded-xl bg-[#5cc8c7]/20 border border-[#5cc8c7]/30 px-6 py-4 text-[#fbeda5] text-lg" />
+                </div>
+                <div className="space-y-3">
+                  <label className="block text-lg font-medium text-[#fbeda5]">Portfolio</label>
+                  <input name="portfolio" value={primaryForm.links.portfolio} onChange={handlePrimaryChange} placeholder="Portfolio" className="w-full rounded-xl bg-[#5cc8c7]/20 border border-[#5cc8c7]/30 px-6 py-4 text-[#fbeda5] text-lg" />
+                </div>
+              </div>
+
+              <div className="space-y-6">
+                <h3 className="text-xl font-semibold text-[#fbeda5]">Developer type</h3>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  {developerTypes.map((type) => (
+                    <button
+                      key={type.value}
+                      onClick={() => setPrimaryForm((p) => ({ ...p, developerType: type.value }))}
+                      className={`px-6 py-4 rounded-xl text-lg font-medium transition ${primaryForm.developerType === type.value ? "border-2 border-[#fa6d80] bg-[#fa6d80]/20 text-[#fbeda5]" : "border-2 border-[#5cc8c7]/10 bg-[#425765]/40 text-[#deeb24] hover:border-[#5cc8c7]/30"}`}
+                    >
+                      {type.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex justify-between pt-8">
+                <button
+                  onClick={() => navigate("/matches")}
+                  className="px-8 py-4 rounded-xl bg-[#425765]/50 text-[#fbeda5] hover:bg-[#5cc8c7]/20 text-lg font-medium"
+                >
+                  ← Back
+                </button>
+                <button onClick={savePrimary} disabled={loading} className="px-8 py-4 rounded-xl bg-[#deeb24] text-black text-lg font-semibold">{loading?"Saving...":"Save Preferences"}</button>
+              </div>
             </div>
           </div>
         )}
 
         {tab === "secondary" && (
-          <div className="rounded-2xl bg-[#425765]/80 border border-[#5cc8c7]/10 p-8">
-            <h3 className="text-lg font-medium">Skills you want in teammates</h3>
-            <SkillSelect selected={secondaryForm.skillsWant} setSelected={(s) => setSecondaryForm((p) => ({ ...p, skillsWant: s }))} />
-
-            <div className="mt-6">
-              <h3 className="text-sm text-gray-300 mb-2">Preferred teammate type</h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                {teammatePreferences.map((pref) => (
-                  <button
-                    key={pref.value}
-                    onClick={() => setSecondaryForm((p) => ({ ...p, teammatePreference: pref.value }))}
-                    className={`px-4 py-2 rounded-xl ${secondaryForm.teammatePreference === pref.value ? "border-[#fa6d80] bg-[#fa6d80]/20 text-[#fbeda5]" : "border-[#5cc8c7]/10 bg-[#425765]/40 text-[#deeb24] hover:border-[#5cc8c7]/30"}`}
-                  >
-                    {pref.label}
-                  </button>
-                ))}
+          <div className="rounded-2xl bg-[#425765]/80 border border-[#5cc8c7]/10 p-12">
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <h3 className="text-2xl font-semibold text-[#fbeda5]">Skills you want in teammates</h3>
+                <SkillSelect selected={secondaryForm.skillsWant} setSelected={(s) => setSecondaryForm((p) => ({ ...p, skillsWant: s }))} />
               </div>
-            </div>
 
-            <div className="mt-6 flex justify-between">
-              <button
-                onClick={() => navigate("/matches")}
-                className="px-6 py-3 rounded-xl bg-[#425765]/50 text-[#fbeda5] hover:bg-[#5cc8c7]/20"
-              >
-                ← Back
-              </button>
-              <button onClick={saveSecondary} disabled={loading} className="px-6 py-3 rounded-xl bg-[#deeb24] text-black">{loading?"Saving...":"Save Preferences"}</button>
+              <div className="space-y-6">
+                <h3 className="text-xl font-semibold text-[#fbeda5]">Preferred teammate type</h3>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  {teammatePreferences.map((pref) => (
+                    <button
+                      key={pref.value}
+                      onClick={() => setSecondaryForm((p) => ({ ...p, teammatePreference: pref.value }))}
+                      className={`px-6 py-4 rounded-xl text-lg font-medium transition ${secondaryForm.teammatePreference === pref.value ? "border-2 border-[#fa6d80] bg-[#fa6d80]/20 text-[#fbeda5]" : "border-2 border-[#5cc8c7]/10 bg-[#425765]/40 text-[#deeb24] hover:border-[#5cc8c7]/30"}`}
+                    >
+                      {pref.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex justify-between pt-8">
+                <button
+                  onClick={() => navigate("/matches")}
+                  className="px-8 py-4 rounded-xl bg-[#425765]/50 text-[#fbeda5] hover:bg-[#5cc8c7]/20 text-lg font-medium"
+                >
+                  ← Back
+                </button>
+                <button onClick={saveSecondary} disabled={loading} className="px-8 py-4 rounded-xl bg-[#deeb24] text-black text-lg font-semibold">{loading?"Saving...":"Save Preferences"}</button>
+              </div>
             </div>
           </div>
         )}
