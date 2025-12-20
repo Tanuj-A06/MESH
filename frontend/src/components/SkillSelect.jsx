@@ -3,22 +3,22 @@ import { skillsAPI } from "../services/api";
 
 // Fallback skills in case API fails
 const FALLBACK_SKILLS = [
-  { id: 1, name: "React", slug: "react" },
-  { id: 2, name: "Vue.js", slug: "vue" },
-  { id: 3, name: "Angular", slug: "angular" },
-  { id: 4, name: "Node.js", slug: "nodejs" },
-  { id: 5, name: "Python", slug: "python" },
-  { id: 6, name: "Django", slug: "django" },
-  { id: 7, name: "FastAPI", slug: "fastapi" },
-  { id: 8, name: "PostgreSQL", slug: "postgresql" },
-  { id: 9, name: "MongoDB", slug: "mongodb" },
-  { id: 10, name: "Docker", slug: "docker" },
-  { id: 11, name: "TypeScript", slug: "typescript" },
-  { id: 12, name: "AWS", slug: "aws" },
-  { id: 13, name: "Kubernetes", slug: "kubernetes" },
-  { id: 14, name: "GraphQL", slug: "graphql" },
-  { id: 15, name: "Redis", slug: "redis" },
-  { id: 16, name: "Tailwind CSS", slug: "tailwind" },
+  { id: 1, name: "React", slug: "react", icon: "⚛️" },
+  { id: 2, name: "Vue.js", slug: "vue", icon: "🟢" },
+  { id: 3, name: "Angular", slug: "angular", icon: "🅰️" },
+  { id: 4, name: "Node.js", slug: "nodejs", icon: "🟢" },
+  { id: 5, name: "Python", slug: "python", icon: "🐍" },
+  { id: 6, name: "Django", slug: "django", icon: "🐍" },
+  { id: 7, name: "FastAPI", slug: "fastapi", icon: "⚡" },
+  { id: 8, name: "PostgreSQL", slug: "postgresql", icon: "🐘" },
+  { id: 9, name: "MongoDB", slug: "mongodb", icon: "🍃" },
+  { id: 10, name: "Docker", slug: "docker", icon: "🐳" },
+  { id: 11, name: "TypeScript", slug: "typescript", icon: "🔷" },
+  { id: 12, name: "AWS", slug: "aws", icon: "☁️" },
+  { id: 13, name: "Kubernetes", slug: "kubernetes", icon: "⚓" },
+  { id: 14, name: "GraphQL", slug: "graphql", icon: "🔺" },
+  { id: 15, name: "Redis", slug: "redis", icon: "🔴" },
+  { id: 16, name: "Tailwind CSS", slug: "tailwind", icon: "🎨" },
 ];
 
 export default function SkillSelect({ selected, setSelected }) {
