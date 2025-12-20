@@ -69,7 +69,15 @@ export default function Matches() {
   return (
     <div className="relative min-h-screen text-white px-12 pt-16">
       {/* Page heading */}
-      <h1 className="font-heading text-4xl mb-6">Your Matches</h1>
+      <div className="flex items-center justify-between mb-6">
+        <h1 className="font-heading text-4xl">Your Matches</h1>
+        <button
+          onClick={() => navigate("/dashboard")}
+          className="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20"
+        >
+          Edit Profile
+        </button>
+      </div>
 
       {/* Tabs */}
       <div className="flex gap-4 mb-8">

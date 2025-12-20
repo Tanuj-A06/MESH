@@ -9,6 +9,7 @@ import Primary from "./pages/Primary";
 import Secondary from "./pages/Secondary";
 import Matches from "./pages/Matches";
 import Chat from "./pages/Chat";
+import Dashboard from "./pages/Dashboard";
 
 
 export default function App() {
@@ -54,6 +55,15 @@ export default function App() {
             element={
               <ProtectedRoute>
                 <Secondary />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
               </ProtectedRoute>
             }
           />
