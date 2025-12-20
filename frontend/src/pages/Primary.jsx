@@ -130,20 +130,20 @@ export default function Primary() {
   ];
 
   return (
-    <div className="min-h-screen text-white flex justify-center px-6 py-20">
+    <div className="min-h-screen text-[#fbeda5] flex justify-center px-6 py-20">
       {/* Card wrapper */}
-      <div className="w-full max-w-3xl rounded-2xl bg-[#0d0d0d]/80 backdrop-blur-md border border-white/10 px-10 py-12 space-y-14">
+      <div className="w-full max-w-3xl rounded-2xl bg-[#425765]/80 backdrop-blur-md border border-[#5cc8c7]/10 px-10 py-12 space-y-14">
 
         {/* STEP 1 — Header */}
         <div className="space-y-10">
           <h1
-            className="text-4xl font-semibold tracking-wide"
+            className="text-4xl font-semibold tracking-wide text-[#fa6d80]"
             style={{ fontFamily: "BBH Bogle, sans-serif" }} 
           >
             Tell us about yourself
           </h1>
 
-          <p className="text-gray-400">
+          <p className="text-[#deeb24]">
             This helps us build your MESH profile
           </p>
 
@@ -162,7 +162,7 @@ export default function Primary() {
               name="name"
               value={form.name}
               onChange={handleChange}
-              className="w-full rounded-xl bg-black/40 border border-white/10 px-5 py-3 focus:outline-none focus:border-white/30"
+              className="w-full rounded-xl bg-[#5cc8c7]/20 border border-[#5cc8c7]/10 px-5 py-3 focus:outline-none focus:border-[#5cc8c7]/30 text-[#fbeda5]"
               placeholder="e.g. Divyanshi Y"
             />
             {errors.name && (
@@ -181,7 +181,7 @@ export default function Primary() {
                 name="age"
                 value={form.age}
                 onChange={handleChange}
-                className="w-full rounded-xl bg-black/40 border border-white/10 px-5 py-3 focus:outline-none focus:border-white/30"
+                className="w-full rounded-xl bg-[#5cc8c7]/20 border border-[#5cc8c7]/10 px-5 py-3 focus:outline-none focus:border-[#5cc8c7]/30 text-[#fbeda5]"
                 placeholder="20"
               />
               {errors.age && (
@@ -197,7 +197,7 @@ export default function Primary() {
                 name="institution"
                 value={form.institution}
                 onChange={handleChange}
-                className="w-full rounded-xl bg-black/40 border border-white/10 px-5 py-3 focus:outline-none focus:border-white/30"
+                className="w-full rounded-xl bg-[#5cc8c7]/20 border border-[#5cc8c7]/10 px-5 py-3 focus:outline-none focus:border-[#5cc8c7]/30 text-[#fbeda5]"
                 placeholder="e.g. K J Somaiya College of Engineering"
               />
               {errors.institution && (
@@ -211,10 +211,10 @@ export default function Primary() {
 
         {/* STEP 3 — Skills */}
         <div className="space-y-10">
-          <h2 className="text-xl font-medium">
+          <h2 className="text-xl font-medium text-[#fa6d80]">
             Skills you have
           </h2>
-          <p className="text-gray-400 text-sm">
+          <p className="text-[#deeb24] text-sm">
             Select all that apply
           </p>
 
@@ -244,28 +244,28 @@ export default function Primary() {
               value={form.links.github}
               onChange={handleChange}
               placeholder="GitHub profile URL"
-              className="rounded-xl bg-black/40 border border-white/10 px-5 py-3 focus:outline-none focus:border-white/30"
+              className="rounded-xl bg-[#5cc8c7]/20 border border-[#5cc8c7]/10 px-5 py-3 focus:outline-none focus:border-[#5cc8c7]/30 text-[#fbeda5]"
             />
             <input
               name="x"
               value={form.links.x}
               onChange={handleChange}
               placeholder="X (Twitter) profile URL"
-              className="rounded-xl bg-black/40 border border-white/10 px-5 py-3 focus:outline-none focus:border-white/30"
+              className="rounded-xl bg-[#5cc8c7]/20 border border-[#5cc8c7]/10 px-5 py-3 focus:outline-none focus:border-[#5cc8c7]/30 text-[#fbeda5]"
             />
             <input
               name="portfolio"
               value={form.links.portfolio}
               onChange={handleChange}
               placeholder="Portfolio website (optional)"
-              className="rounded-xl bg-black/50 border border-white/15 px-5 py-3 focus:outline-none focus:border-white/30"
+              className="rounded-xl bg-[#5cc8c7]/50 border border-[#5cc8c7]/15 px-5 py-3 focus:outline-none focus:border-[#5cc8c7]/30 text-[#fbeda5]"
             />
           </div>
         </div>
 
         {/* STEP 5 — Developer Type */}
         <div className="space-y-6">
-          <h2 className="text-xl font-medium">What type of developer are you?</h2>
+          <h2 className="text-xl font-medium text-[#fa6d80]">What type of developer are you?</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {developerTypes.map((type) => (
               <button
@@ -274,8 +274,8 @@ export default function Primary() {
                 onClick={() => setForm({ ...form, developerType: type.value })}
                 className={`px-4 py-3 rounded-xl border transition ${
                   form.developerType === type.value
-                    ? "border-purple-500 bg-purple-500/20 text-white"
-                    : "border-white/10 bg-black/40 text-gray-400 hover:border-white/30"
+                    ? "border-[#fa6d80] bg-[#fa6d80]/20 text-[#fbeda5]"
+                    : "border-[#5cc8c7]/10 bg-[#425765]/40 text-[#deeb24] hover:border-[#5cc8c7]/30"
                 }`}
               >
                 {type.label}
@@ -292,7 +292,7 @@ export default function Primary() {
           <button
             onClick={handleContinue}
             disabled={loading}
-            className="w-full rounded-xl bg-white text-black py-4 font-medium hover:bg-gray-200 transition disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full rounded-xl bg-[#deeb24] text-black py-4 font-medium hover:bg-[#fbeda5] transition disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? "Saving..." : "Continue →"}
           </button>

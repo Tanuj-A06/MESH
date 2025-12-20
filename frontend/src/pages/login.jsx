@@ -39,29 +39,40 @@ export default function Login() {
 
   return (
     <>
-      <div className="absolute top-6 right-6 z-50">
-        {loading ? (
-          <div className="text-white">Signing in...</div>
-        ) : (
-          <GoogleLogin
-            onSuccess={handleSuccess}
-            onError={() => setError("Login failed")}
-          />
-        )}
+      <div className="absolute top-6 left-6 z-50">
+        <button
+          onClick={() => navigate("/")}
+          className="px-4 py-2 rounded-full bg-[#425765]/50 text-[#fbeda5] hover:bg-[#5cc8c7]/20"
+        >
+          ← Back
+        </button>
       </div>
 
-      <div className="min-h-screen bg-black text-white p-16">
-        <h1 className="text-4xl mb-4">Login</h1>
-        <p className="text-gray-400">Sign in to continue and find your perfect dev match.</p>
-        
-        {error && (
-          <p className="text-red-400 mt-4">{error}</p>
-        )}
+      <div className="min-h-screen bg-[#425765] text-[#fbeda5] flex items-center justify-center p-16">
+        <div className="text-center max-w-md">
+          <h1 className="text-4xl mb-4 text-[#fa6d80]">Login</h1>
+          <p className="text-[#deeb24]">Sign in to continue and find your perfect dev match.</p>
+          
+          {error && (
+            <p className="text-[#fa6d80] mt-4">{error}</p>
+          )}
 
-        <div className="mt-8 space-y-4 text-gray-500">
-          <p>✓ Connect with like-minded developers</p>
-          <p>✓ Find teammates for your projects</p>
-          <p>✓ Match based on skills you need</p>
+          <div className="mt-8 space-y-4 text-[#deeb24]">
+            <p>✓ Connect with like-minded developers</p>
+            <p>✓ Find teammates for your projects</p>
+            <p>✓ Match based on skills you need</p>
+          </div>
+
+          <div className="mt-8 flex justify-center">
+            {loading ? (
+              <div className="text-[#fbeda5]">Signing in...</div>
+            ) : (
+              <GoogleLogin
+                onSuccess={handleSuccess}
+                onError={() => setError("Login failed")}
+              />
+            )}
+          </div>
         </div>
       </div>
     </>

@@ -53,20 +53,20 @@ export default function Matches() {
 
   if (loading) {
     return (
-      <div className="min-h-screen text-white flex items-center justify-center">
-        <div className="text-xl">Loading suggestions...</div>
+      <div className="min-h-screen text-[#fbeda5] flex items-center justify-center">
+        <div className="text-xl text-[#5cc8c7]">Loading suggestions...</div>
       </div>
     );
   }
 
   return (
-    <div className="relative min-h-screen text-white px-12 pt-16">
+    <div className="relative min-h-screen text-[#fbeda5] px-12 pt-16">
       {/* Page heading */}
       <div className="flex items-center justify-between mb-6">
-        <h1 className="font-heading text-4xl">Your Matches</h1>
+        <h1 className="font-heading text-4xl text-[#fa6d80]">Your Matches</h1>
         <button
           onClick={() => navigate("/dashboard")}
-          className="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20"
+          className="px-4 py-2 rounded-full bg-[#425765]/50 text-[#fbeda5] hover:bg-[#5cc8c7]/20"
         >
           Edit Profile
         </button>
@@ -78,8 +78,8 @@ export default function Matches() {
           onClick={() => setActiveTab("suggestions")}
           className={`px-6 py-2 rounded-full transition ${
             activeTab === "suggestions"
-              ? "bg-white text-black"
-              : "bg-white/10 text-gray-400 hover:bg-white/20"
+              ? "bg-[#deeb24] text-black"
+              : "bg-[#425765]/50 text-[#fbeda5] hover:bg-[#5cc8c7]/20"
           }`}
         >
           Suggestions ({suggestions.length})
@@ -88,8 +88,8 @@ export default function Matches() {
           onClick={() => setActiveTab("matches")}
           className={`px-6 py-2 rounded-full transition ${
             activeTab === "matches"
-              ? "bg-white text-black"
-              : "bg-white/10 text-gray-400 hover:bg-white/20"
+              ? "bg-[#deeb24] text-black"
+              : "bg-[#425765]/50 text-[#fbeda5] hover:bg-[#5cc8c7]/20"
           }`}
         >
           Matches ({matches.length})
@@ -109,7 +109,7 @@ export default function Matches() {
                 key={profile.id}
                 whileHover={{ scale: 1.03 }}
                 transition={{ type: "spring", stiffness: 300 }}
-                className="relative rounded-xl p-6 bg-[#0d0d0d] border border-white/10 overflow-hidden"
+                className="relative rounded-xl p-6 bg-[#425765] border border-[#5cc8c7]/10 overflow-hidden"
               >
                 {/* Compatibility score badge */}
                 {profile.compatibility_score && (
@@ -119,7 +119,7 @@ export default function Matches() {
                 )}
 
                 {/* Chroma glow */}
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 via-pink-500/20 to-blue-500/20 opacity-0 hover:opacity-100 transition-opacity" />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#5cc8c7]/20 via-[#fa6d80]/20 to-[#deeb24]/20 opacity-0 hover:opacity-100 transition-opacity" />
 
                 <div className="relative z-10">
                   {/* Avatar */}
@@ -157,8 +157,8 @@ export default function Matches() {
                     disabled={likedProfiles.has(profile.id)}
                     className={`mt-4 w-full py-2 rounded-lg transition ${
                       likedProfiles.has(profile.id)
-                        ? "bg-green-500/20 text-green-400 cursor-default"
-                        : "bg-gradient-to-r from-purple-500 to-pink-500 hover:opacity-90"
+                        ? "bg-[#fa6d80]/20 text-[#fa6d80] cursor-default"
+                        : "bg-gradient-to-r from-[#5cc8c7] to-[#fa6d80] hover:opacity-90"
                     }`}
                   >
                     {likedProfiles.has(profile.id) ? "✓ Liked" : "❤️ Like"}
@@ -187,10 +187,10 @@ export default function Matches() {
                   key={match.id}
                   whileHover={{ scale: 1.03 }}
                   transition={{ type: "spring", stiffness: 300 }}
-                  className="relative rounded-xl p-6 bg-[#0d0d0d] border border-green-500/30 overflow-hidden"
+                  className="relative rounded-xl p-6 bg-[#425765] border border-[#fa6d80]/30 overflow-hidden"
                 >
                   <div className="absolute top-4 right-4">
-                    <span className="px-2 py-1 rounded-full bg-green-500/20 text-green-400 text-xs">
+                    <span className="px-2 py-1 rounded-full bg-[#fa6d80]/20 text-[#fa6d80] text-xs">
                       Matched!
                     </span>
                   </div>
@@ -222,7 +222,7 @@ export default function Matches() {
 
                     <button
                       onClick={() => handleStartChat(match.id)}
-                      className="mt-4 w-full py-2 rounded-lg bg-gradient-to-r from-green-500 to-teal-500 hover:opacity-90 transition"
+                      className="mt-4 w-full py-2 rounded-lg bg-gradient-to-r from-[#fa6d80] to-[#deeb24] hover:opacity-90 transition"
                     >
                       💬 Start Chat
                     </button>

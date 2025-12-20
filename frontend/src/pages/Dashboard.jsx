@@ -142,42 +142,42 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="min-h-screen text-white px-12 py-16">
+    <div className="min-h-screen text-[#fbeda5] px-12 py-16">
       <div className="max-w-4xl mx-auto">
         <div className="flex items-center justify-between mb-6">
-          <h1 className="text-3xl font-semibold">Dashboard</h1>
+          <h1 className="text-3xl font-semibold text-[#fa6d80]">Dashboard</h1>
           <div className="flex gap-2">
             <button
               onClick={() => setTab("primary")}
               className={`px-4 py-2 rounded-full ${
-                tab === "primary" ? "bg-white text-black" : "bg-white/10"
+                tab === "primary" ? "bg-[#deeb24] text-black" : "bg-[#425765]/50 text-[#fbeda5] hover:bg-[#5cc8c7]/20"
               }`}
             >
-              Primary
+              Personal
             </button>
             <button
               onClick={() => setTab("secondary")}
               className={`px-4 py-2 rounded-full ${
-                tab === "secondary" ? "bg-white text-black" : "bg-white/10"
+                tab === "secondary" ? "bg-[#deeb24] text-black" : "bg-[#425765]/50 text-[#fbeda5] hover:bg-[#5cc8c7]/20"
               }`}
             >
-              Secondary
+              Teammates
             </button>
           </div>
         </div>
 
-        {message && <p className="text-sm text-green-300 mb-4">{message}</p>}
+        {message && <p className="text-sm text-[#deeb24] mb-4">{message}</p>}
 
         {tab === "primary" && (
-          <div className="rounded-2xl bg-[#0d0d0d]/80 border border-white/10 p-8">
+          <div className="rounded-2xl bg-[#425765]/80 border border-[#5cc8c7]/10 p-8">
             <div className="space-y-4">
               <label className="block text-sm text-gray-300">Full name</label>
-              <input name="name" value={primaryForm.name} onChange={handlePrimaryChange} className="w-full rounded-xl bg-black/40 border border-white/10 px-4 py-2" />
+              <input name="name" value={primaryForm.name} onChange={handlePrimaryChange} className="w-full rounded-xl bg-[#5cc8c7]/20 border border-[#5cc8c7]/30 px-4 py-2 text-[#fbeda5]" />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-              <input name="age" type="number" value={primaryForm.age} onChange={handlePrimaryChange} placeholder="Age" className="rounded-xl bg-black/40 border border-white/10 px-4 py-2" />
-              <input name="institution" value={primaryForm.institution} onChange={handlePrimaryChange} placeholder="Institution" className="md:col-span-2 rounded-xl bg-black/40 border border-white/10 px-4 py-2" />
+              <input name="age" type="number" value={primaryForm.age} onChange={handlePrimaryChange} placeholder="Age" className="rounded-xl bg-[#5cc8c7]/20 border border-[#5cc8c7]/30 px-4 py-2 text-[#fbeda5]" />
+              <input name="institution" value={primaryForm.institution} onChange={handlePrimaryChange} placeholder="Institution" className="md:col-span-2 rounded-xl bg-[#5cc8c7]/20 border border-[#5cc8c7]/30 px-4 py-2 text-[#fbeda5]" />
             </div>
 
             <div className="mt-6">
@@ -186,9 +186,9 @@ export default function Dashboard() {
             </div>
 
             <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-              <input name="github" value={primaryForm.links.github} onChange={handlePrimaryChange} placeholder="GitHub" className="rounded-xl bg-black/40 border border-white/10 px-4 py-2" />
-              <input name="x" value={primaryForm.links.x} onChange={handlePrimaryChange} placeholder="X (Twitter)" className="rounded-xl bg-black/40 border border-white/10 px-4 py-2" />
-              <input name="portfolio" value={primaryForm.links.portfolio} onChange={handlePrimaryChange} placeholder="Portfolio" className="rounded-xl bg-black/40 border border-white/10 px-4 py-2" />
+              <input name="github" value={primaryForm.links.github} onChange={handlePrimaryChange} placeholder="GitHub" className="rounded-xl bg-[#5cc8c7]/20 border border-[#5cc8c7]/30 px-4 py-2 text-[#fbeda5]" />
+              <input name="x" value={primaryForm.links.x} onChange={handlePrimaryChange} placeholder="X (Twitter)" className="rounded-xl bg-[#5cc8c7]/20 border border-[#5cc8c7]/30 px-4 py-2 text-[#fbeda5]" />
+              <input name="portfolio" value={primaryForm.links.portfolio} onChange={handlePrimaryChange} placeholder="Portfolio" className="rounded-xl bg-[#5cc8c7]/20 border border-[#5cc8c7]/30 px-4 py-2 text-[#fbeda5]" />
             </div>
 
             <div className="mt-6">
@@ -198,7 +198,7 @@ export default function Dashboard() {
                   <button
                     key={type.value}
                     onClick={() => setPrimaryForm((p) => ({ ...p, developerType: type.value }))}
-                    className={`px-4 py-2 rounded-xl ${primaryForm.developerType === type.value ? "border-purple-500 bg-purple-500/20" : "border-white/10 bg-black/40 text-gray-300"}`}
+                    className={`px-4 py-2 rounded-xl ${primaryForm.developerType === type.value ? "border-[#fa6d80] bg-[#fa6d80]/20 text-[#fbeda5]" : "border-[#5cc8c7]/10 bg-[#425765]/40 text-[#deeb24] hover:border-[#5cc8c7]/30"}`}
                   >
                     {type.label}
                   </button>
@@ -206,14 +206,20 @@ export default function Dashboard() {
               </div>
             </div>
 
-            <div className="mt-6 flex justify-end">
-              <button onClick={savePrimary} disabled={loading} className="px-6 py-3 rounded-xl bg-white text-black">{loading?"Saving...":"Save"}</button>
+            <div className="mt-6 flex justify-between">
+              <button
+                onClick={() => navigate("/matches")}
+                className="px-6 py-3 rounded-xl bg-[#425765]/50 text-[#fbeda5] hover:bg-[#5cc8c7]/20"
+              >
+                ← Back
+              </button>
+              <button onClick={savePrimary} disabled={loading} className="px-6 py-3 rounded-xl bg-[#deeb24] text-black">{loading?"Saving...":"Save"}</button>
             </div>
           </div>
         )}
 
         {tab === "secondary" && (
-          <div className="rounded-2xl bg-[#0d0d0d]/80 border border-white/10 p-8">
+          <div className="rounded-2xl bg-[#425765]/80 border border-[#5cc8c7]/10 p-8">
             <h3 className="text-lg font-medium">Skills you want in teammates</h3>
             <SkillSelect selected={secondaryForm.skillsWant} setSelected={(s) => setSecondaryForm((p) => ({ ...p, skillsWant: s }))} />
 
@@ -224,7 +230,7 @@ export default function Dashboard() {
                   <button
                     key={pref.value}
                     onClick={() => setSecondaryForm((p) => ({ ...p, teammatePreference: pref.value }))}
-                    className={`px-4 py-2 rounded-xl ${secondaryForm.teammatePreference === pref.value ? "border-purple-500 bg-purple-500/20" : "border-white/10 bg-black/40 text-gray-300"}`}
+                    className={`px-4 py-2 rounded-xl ${secondaryForm.teammatePreference === pref.value ? "border-[#fa6d80] bg-[#fa6d80]/20 text-[#fbeda5]" : "border-[#5cc8c7]/10 bg-[#425765]/40 text-[#deeb24] hover:border-[#5cc8c7]/30"}`}
                   >
                     {pref.label}
                   </button>
@@ -232,8 +238,14 @@ export default function Dashboard() {
               </div>
             </div>
 
-            <div className="mt-6 flex justify-end">
-              <button onClick={saveSecondary} disabled={loading} className="px-6 py-3 rounded-xl bg-white text-black">{loading?"Saving...":"Save Preferences"}</button>
+            <div className="mt-6 flex justify-between">
+              <button
+                onClick={() => navigate("/matches")}
+                className="px-6 py-3 rounded-xl bg-[#425765]/50 text-[#fbeda5] hover:bg-[#5cc8c7]/20"
+              >
+                ← Back
+              </button>
+              <button onClick={saveSecondary} disabled={loading} className="px-6 py-3 rounded-xl bg-[#deeb24] text-black">{loading?"Saving...":"Save Preferences"}</button>
             </div>
           </div>
         )}

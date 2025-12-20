@@ -41,6 +41,10 @@ const Squares = ({
           const squareX = x - (gridOffset.current.x % squareSize);
           const squareY = y - (gridOffset.current.y % squareSize);
 
+          // Default fill
+          ctx.fillStyle = '#425765';
+          ctx.fillRect(squareX, squareY, squareSize, squareSize);
+
           if (
             hoveredSquare.current &&
             Math.floor((x - startX) / squareSize) === hoveredSquare.current.x &&
