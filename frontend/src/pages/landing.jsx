@@ -38,7 +38,7 @@ const Landing = () => {
               className="text-[#deeb24] text-lg"
               style={{ fontFamily: "Anta, sans-serif" }}
             >
-              Match minds. Build teams. Ship faster.
+              You’re Someone’s Missing Skill.
             </p>
           </div>
 

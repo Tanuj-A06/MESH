@@ -127,35 +127,35 @@ export default function Chat() {
 
   if (loading) {
     return (
-      <div className="min-h-screen text-white flex items-center justify-center">
+      <div className="min-h-screen text-[#fbeda5] flex items-center justify-center">
         <div className="text-xl">Loading chat...</div>
       </div>
     );
   }
 
   return (
-    <div className="relative min-h-screen text-white px-6 py-8 flex justify-center items-center">
+    <div className="relative min-h-screen text-[#fbeda5] px-6 py-8 flex justify-center items-center">
       {/* Chat Container */}
-      <div className="flex flex-col w-full max-w-4xl h-[85vh] rounded-2xl bg-black/40 backdrop-blur-xl border border-white/10 shadow-xl overflow-hidden">
+      <div className="flex flex-col w-full max-w-4xl h-[85vh] rounded-2xl bg-[#425765]/80 backdrop-blur-xl border border-[#5cc8c7]/10 shadow-xl overflow-hidden">
         
         {/* Header */}
-        <div className="flex items-center gap-4 px-6 py-4 border-b border-white/10">
+        <div className="flex items-center gap-4 px-6 py-4 border-b border-[#5cc8c7]/10">
           <button 
             onClick={() => navigate("/matches")}
-            className="text-gray-400 hover:text-white transition"
+            className="text-[#fbeda5] hover:text-[#deeb24] transition"
           >
             ← Back
           </button>
           
-          <div className="w-11 h-11 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center font-bold text-lg">
+          <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#fa6d80] to-[#deeb24] flex items-center justify-center font-bold text-lg">
             {otherUser?.user?.first_name?.[0] || "?"}
           </div>
 
           <div className="flex flex-col">
-            <span className="font-heading text-lg">
+            <span className="font-heading text-lg text-[#fa6d80]">
               {otherUser?.user?.first_name || "Unknown"} {otherUser?.user?.last_name?.[0] || ""}.
             </span>
-            <span className={`text-xs ${connected ? "text-green-400" : "text-gray-500"}`}>
+            <span className={`text-xs ${connected ? "text-[#deeb24]" : "text-gray-500"}`}>
               {connected ? "online" : "offline"}
             </span>
           </div>
@@ -164,7 +164,7 @@ export default function Chat() {
         {/* Messages */}
         <div className="flex-1 px-6 py-6 space-y-4 overflow-y-auto">
           {messages.length === 0 ? (
-            <div className="text-center text-gray-500 mt-10">
+            <div className="text-center text-gray-400 mt-10">
               <p>No messages yet.</p>
               <p className="text-sm mt-2">Say hello to start the conversation! 👋</p>
             </div>
@@ -177,12 +177,12 @@ export default function Chat() {
                 <div
                   className={`max-w-[80%] px-5 py-3 rounded-2xl text-[15px] leading-relaxed ${
                     isMyMessage(msg)
-                      ? "bg-gradient-to-br from-purple-600 to-pink-600 rounded-br-sm"
-                      : "bg-white/10 rounded-bl-sm"
+                      ? "bg-gradient-to-br from-[#fa6d80] to-[#deeb24] text-black rounded-br-sm"
+                      : "bg-[#5cc8c7]/20 text-[#fbeda5] rounded-bl-sm"
                   }`}
                 >
                   {msg.message}
-                  <div className={`text-xs mt-1 ${isMyMessage(msg) ? "text-white/60" : "text-gray-500"}`}>
+                  <div className={`text-xs mt-1 ${isMyMessage(msg) ? "text-black/60" : "text-gray-400"}`}>
                     {msg.created_at ? new Date(msg.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : ""}
                   </div>
                 </div>
@@ -193,19 +193,19 @@ export default function Chat() {
         </div>
 
         {/* Input */}
-        <div className="px-4 py-4 border-t border-white/10 flex items-center gap-3 bg-black/30">
+        <div className="px-4 py-4 border-t border-[#5cc8c7]/10 flex items-center gap-3 bg-[#425765]/50">
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && sendMessage()}
             placeholder="Type a message…"
-            className="flex-1 bg-black/50 text-[15px] px-5 py-3 rounded-xl outline-none border border-white/10 focus:border-purple-500 transition"
+            className="flex-1 bg-[#5cc8c7]/20 text-[15px] px-5 py-3 rounded-xl outline-none border border-[#5cc8c7]/30 focus:border-[#deeb24] transition text-[#fbeda5] placeholder:text-gray-400"
           />
 
           <button
             onClick={sendMessage}
             disabled={!input.trim()}
-            className="px-6 py-3 rounded-xl bg-gradient-to-br from-purple-600 to-pink-600 text-sm font-medium hover:opacity-90 transition disabled:opacity-50"
+            className="px-6 py-3 rounded-xl bg-gradient-to-br from-[#fa6d80] to-[#deeb24] text-black text-sm font-medium hover:opacity-90 transition disabled:opacity-50"
           >
             Send
           </button>
