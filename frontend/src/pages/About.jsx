@@ -22,19 +22,21 @@ export default function About() {
           <div className="flex flex-col gap-14">
 
             <p className="text-2xl leading-relaxed">
-              <span className="font-semibold text-[#deeb24]">MESH</span> helps builders find the
-              right people — fast.
+              <span className="font-semibold text-[#deeb24]">MESH</span> is where ideas find people 
+              — and people find momentum..
             </p>
 
             <p className="text-lg leading-loose max-w-2xl">
-              <span className="text-[#fbeda5]">We match developers, designers, and creators based on</span>
-              <span className="text-[#deeb24]"> skills, interests, and intent</span>,
+              <span className="text-[#fbeda5]">Building something great shouldn’t start with endless scrolling, cold DMs, or mismatched teams. MESH exists to change that.
+                We help students, developers, designers, and creators connect with the right people</span>
+              <span className="text-[#deeb24]"> based on skills, interests, and what they actually want to build </span>,
               not just profiles or followers.
             </p>
 
             <p className="text-lg leading-loose max-w-2xl">
-              <span className="text-[#fbeda5]">Connect your GitHub, LinkedIn, and X to see what matters to you  and get </span>
-              <span className="text-[#deeb24]"> smart matches with compatibility scores</span>,
+              <span className="text-[#fbeda5]">Whether you’re a coder looking for a designer,
+                a founder hunting for a solid tech team, or someone with an idea but no starting point, </span>
+              <span className="text-[#deeb24]"> MESH helps you find your match </span>,
               and collaborate instantly through real-time chat.
             </p>
 
