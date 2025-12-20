@@ -41,7 +41,8 @@ export default function About() {
             </p>
 
             <p className="text-[#deeb24] text-lg tracking-wide">
-              Match minds. Build teams. Ship faster.
+              Are You the Missing Skill?
+              Match Skills. Build Actual Teams.
             </p>
 
           </div>
