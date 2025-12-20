@@ -10,6 +10,7 @@ export default function Matches() {
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("suggestions"); // "suggestions" or "matches"
   const [likedProfiles, setLikedProfiles] = useState(new Set());
+  const [currentUserProfileId, setCurrentUserProfileId] = useState(null);
 
   useEffect(() => {
     loadData();
@@ -18,6 +19,12 @@ export default function Matches() {
   const loadData = async () => {
     setLoading(true);
     try {
+      // Fetch current user's profile to get their profile ID
+      const myProfile = await profileAPI.getMyProfile();
+      if (myProfile?.id) {
+        setCurrentUserProfileId(myProfile.id);
+      }
+      
       const [suggestionsData, matchesData] = await Promise.all([
         profileAPI.getSuggestions(),
         matchesAPI.getMatches(),
@@ -179,8 +186,11 @@ export default function Matches() {
             </p>
           ) : (
             matches.map((match) => {
-              // Determine which profile is the other user
-              const otherProfile = match.user1_profile || match.user2_profile;
+              // Determine which profile is the OTHER user (not the current user)
+              const otherProfile = 
+                match.user1_profile?.id === currentUserProfileId
+                  ? match.user2_profile
+                  : match.user1_profile;
 
               return (
                 <motion.div
