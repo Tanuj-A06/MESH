@@ -130,15 +130,14 @@ export default function Primary() {
   ];
 
   return (
-    <div className="min-h-screen text-[#fbeda5] flex justify-center px-6 py-20">
+    <div className="min-h-screen text-[#fbeda5] flex justify-center items-center px-6">
       {/* Card wrapper */}
-      <div className="w-full max-w-3xl rounded-2xl bg-[#425765]/80 backdrop-blur-md border border-[#5cc8c7]/10 px-10 py-12 space-y-14">
+      <div className="w-full max-w-3xl h-5/6 rounded-2xl bg-[#425765]/80 backdrop-blur-md border border-[#5cc8c7]/10 px-12 py-16 space-y-20 overflow-y-auto">
 
         {/* STEP 1 — Header */}
-        <div className="space-y-10">
+        <div className="space-y-16">
           <h1
             className="text-4xl font-semibold tracking-wide text-[#fa6d80]"
-            style={{ fontFamily: "BBH Bogle, sans-serif" }} 
           >
             Tell us about yourself
           </h1>
@@ -153,9 +152,9 @@ export default function Primary() {
         </div>
 
         {/* STEP 2 — Basic Info */}
-        <div className="space-y-10">
+        <div className="space-y-16">
           <div>
-            <label className="block mb-2 text-sm text-gray-300">
+            <label className="block mb-4 text-sm text-gray-300">
               Full Name
             </label>
             <input
@@ -170,10 +169,10 @@ export default function Primary() {
             )}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-4">
 
             <div>
-              <label className="block mb-2 text-sm text-gray-300">
+              <label className="block mb-4 text-sm text-gray-300">
                 Age
               </label>
               <input
@@ -183,6 +182,7 @@ export default function Primary() {
                 onChange={handleChange}
                 className="w-full rounded-xl bg-[#5cc8c7]/20 border border-[#5cc8c7]/10 px-5 py-3 focus:outline-none focus:border-[#5cc8c7]/30 text-[#fbeda5]"
                 placeholder="20"
+                min="0"
               />
               {errors.age && (
                 <p className="text-red-400 text-sm mt-1">{errors.age}</p>
@@ -190,7 +190,7 @@ export default function Primary() {
             </div>
 
             <div className="md:col-span-2">
-              <label className="block mb-2 text-sm text-gray-300">
+              <label className="block mb-4 text-sm text-gray-300">
                 Institution
               </label>
               <input
@@ -210,7 +210,7 @@ export default function Primary() {
         </div>
 
         {/* STEP 3 — Skills */}
-        <div className="space-y-10">
+        <div className="space-y-16">
           <h2 className="text-xl font-medium text-[#fa6d80]">
             Skills you have
           </h2>
@@ -233,12 +233,12 @@ export default function Primary() {
         </div>
 
         {/* STEP 4 — Links */}
-        <div className="space-y-50">
+        <div className="space-y-16 mt-12">
           <h2 className="text-xl font-medium">
             Profiles & links
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <input
               name="github"
               value={form.links.github}
@@ -264,9 +264,9 @@ export default function Primary() {
         </div>
 
         {/* STEP 5 — Developer Type */}
-        <div className="space-y-6">
+        <div className="space-y-12">
           <h2 className="text-xl font-medium text-[#fa6d80]">What type of developer are you?</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {developerTypes.map((type) => (
               <button
                 key={type.value}
@@ -285,7 +285,7 @@ export default function Primary() {
         </div>
 
         {/* STEP 6 — Continue */}
-        <div className="pt-6">
+        <div className="pt-16">
           {errors.submit && (
             <p className="text-red-400 text-sm mb-4">{errors.submit}</p>
           )}

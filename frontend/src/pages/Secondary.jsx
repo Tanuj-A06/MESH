@@ -48,7 +48,7 @@ export default function Secondary() {
   };
 
   return (
-    <div className="min-h-screen text-[#fbeda5] flex justify-center px-6 py-20">
+    <div className="min-h-screen text-[#fbeda5] flex justify-center items-center px-6">
       <div className="absolute top-6 left-6 z-50">
         <button
           onClick={() => navigate("/primary")}
@@ -57,9 +57,9 @@ export default function Secondary() {
           ← Back
         </button>
       </div>
-      <div className="w-full max-w-3xl rounded-2xl bg-[#425765]/80 border border-[#5cc8c7]/10 px-10 py-12 space-y-14">
+      <div className="w-full max-w-3xl h-5/6 rounded-2xl bg-[#425765]/80 border border-[#5cc8c7]/10 px-12 py-16 space-y-20 overflow-y-auto">
 
-        <div className="space-y-6">
+        <div className="space-y-16">
           <h1 className="text-3xl font-semibold text-[#fa6d80]">
             What are you looking for?
           </h1>
@@ -68,7 +68,7 @@ export default function Secondary() {
           </p>
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-16 mb-12">
           <h2 className="text-xl font-medium text-[#fa6d80]">
             Skills you want in teammates
           </h2>
@@ -79,9 +79,9 @@ export default function Secondary() {
           />
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-12">
           <h2 className="text-xl font-medium text-[#fa6d80]">Preferred teammate type</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {teammatePreferences.map((pref) => (
               <button
                 key={pref.value}
@@ -101,13 +101,15 @@ export default function Secondary() {
 
         {error && <p className="text-red-400 text-sm">{error}</p>}
 
-        <button
-          onClick={handleContinue}
-          disabled={loading}
-          className="w-full rounded-xl bg-[#deeb24] text-black py-4 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          {loading ? "Saving..." : "Find Matches →"}
-        </button>
+        <div className="pt-16">
+          <button
+            onClick={handleContinue}
+            disabled={loading}
+            className="w-full rounded-xl bg-[#deeb24] text-black py-4 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {loading ? "Saving..." : "Find Matches →"}
+          </button>
+        </div>
 
       </div>
     </div>

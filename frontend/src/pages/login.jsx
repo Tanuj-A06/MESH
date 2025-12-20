@@ -50,20 +50,20 @@ export default function Login() {
 
       <div className="min-h-screen bg-[#425765] text-[#fbeda5] flex items-center justify-center p-16">
         <div className="text-center max-w-md">
-          <h1 className="text-4xl mb-4 text-[#fa6d80]">Login</h1>
+          <h1 className="text-4xl mb-8 text-[#fa6d80]">Login</h1>
           <p className="text-[#deeb24]">Sign in to continue and find your perfect dev match.</p>
           
           {error && (
-            <p className="text-[#fa6d80] mt-4">{error}</p>
+            <p className="text-[#fa6d80] mt-6">{error}</p>
           )}
 
-          <div className="mt-8 space-y-4 text-[#deeb24]">
+          <div className="mt-12 space-y-6 text-[#deeb24]">
             <p>✓ Connect with like-minded developers</p>
             <p>✓ Find teammates for your projects</p>
             <p>✓ Match based on skills you need</p>
           </div>
 
-          <div className="mt-8 flex justify-center">
+          <div className="mt-12 flex justify-center">
             {loading ? (
               <div className="text-[#fbeda5]">Signing in...</div>
             ) : (

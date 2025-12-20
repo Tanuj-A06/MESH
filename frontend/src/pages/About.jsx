@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 export default function About() {
   const navigate = useNavigate();
   return (
- <div className="relative z-10 min-h-screen flex justify-center py-24 text-[#fbeda5]">
+ <div className="relative z-10 min-h-screen flex justify-center items-center text-[#fbeda5]">
   <div className="absolute top-6 left-6 z-50">
     <button
       onClick={() => navigate("/")}

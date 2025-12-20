@@ -107,7 +107,7 @@ export default function Matches() {
       {activeTab === "suggestions" && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {suggestions.length === 0 ? (
-            <p className="text-gray-400 col-span-full">
+            <p className="text-[#fa6d80] col-span-full">
               No suggestions found. Complete your profile to get matched!
             </p>
           ) : (
@@ -181,7 +181,7 @@ export default function Matches() {
       {activeTab === "matches" && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {matches.length === 0 ? (
-            <p className="text-gray-400 col-span-full">
+            <p className="text-[#fa6d80] col-span-full">
               No matches yet. Like profiles to get matched!
             </p>
           ) : (
