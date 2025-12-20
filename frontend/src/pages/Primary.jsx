@@ -130,20 +130,19 @@ export default function Primary() {
   ];
 
   return (
-    <div className="min-h-screen text-white flex justify-center px-6 py-20">
+    <div className="min-h-screen text-[#fbeda5] flex justify-center items-center px-6">
       {/* Card wrapper */}
-      <div className="w-full max-w-3xl rounded-2xl bg-[#0d0d0d]/80 backdrop-blur-md border border-white/10 px-10 py-12 space-y-14">
+      <div className="w-full max-w-3xl h-5/6 rounded-2xl bg-[#425765]/80 backdrop-blur-md border border-[#5cc8c7]/10 px-12 py-16 space-y-20 overflow-y-auto">
 
         {/* STEP 1 — Header */}
-        <div className="space-y-10">
+        <div className="space-y-16">
           <h1
-            className="text-4xl font-semibold tracking-wide"
-            style={{ fontFamily: "BBH Bogle, sans-serif" }} 
+            className="text-4xl font-semibold tracking-wide text-[#fa6d80]"
           >
             Tell us about yourself
           </h1>
 
-          <p className="text-gray-400">
+          <p className="text-[#deeb24]">
             This helps us build your MESH profile
           </p>
 
@@ -153,16 +152,16 @@ export default function Primary() {
         </div>
 
         {/* STEP 2 — Basic Info */}
-        <div className="space-y-10">
+        <div className="space-y-16">
           <div>
-            <label className="block mb-2 text-sm text-gray-300">
+            <label className="block mb-4 text-sm text-gray-300">
               Full Name
             </label>
             <input
               name="name"
               value={form.name}
               onChange={handleChange}
-              className="w-full rounded-xl bg-black/40 border border-white/10 px-5 py-3 focus:outline-none focus:border-white/30"
+              className="w-full rounded-xl bg-[#5cc8c7]/20 border border-[#5cc8c7]/10 px-5 py-3 focus:outline-none focus:border-[#5cc8c7]/30 text-[#fbeda5]"
               placeholder="e.g. Divyanshi Y"
             />
             {errors.name && (
@@ -170,10 +169,10 @@ export default function Primary() {
             )}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-4">
 
             <div>
-              <label className="block mb-2 text-sm text-gray-300">
+              <label className="block mb-4 text-sm text-gray-300">
                 Age
               </label>
               <input
@@ -181,8 +180,9 @@ export default function Primary() {
                 name="age"
                 value={form.age}
                 onChange={handleChange}
-                className="w-full rounded-xl bg-black/40 border border-white/10 px-5 py-3 focus:outline-none focus:border-white/30"
+                className="w-full rounded-xl bg-[#5cc8c7]/20 border border-[#5cc8c7]/10 px-5 py-3 focus:outline-none focus:border-[#5cc8c7]/30 text-[#fbeda5]"
                 placeholder="20"
+                min="0"
               />
               {errors.age && (
                 <p className="text-red-400 text-sm mt-1">{errors.age}</p>
@@ -190,14 +190,14 @@ export default function Primary() {
             </div>
 
             <div className="md:col-span-2">
-              <label className="block mb-2 text-sm text-gray-300">
+              <label className="block mb-4 text-sm text-gray-300">
                 Institution
               </label>
               <input
                 name="institution"
                 value={form.institution}
                 onChange={handleChange}
-                className="w-full rounded-xl bg-black/40 border border-white/10 px-5 py-3 focus:outline-none focus:border-white/30"
+                className="w-full rounded-xl bg-[#5cc8c7]/20 border border-[#5cc8c7]/10 px-5 py-3 focus:outline-none focus:border-[#5cc8c7]/30 text-[#fbeda5]"
                 placeholder="e.g. K J Somaiya College of Engineering"
               />
               {errors.institution && (
@@ -210,11 +210,11 @@ export default function Primary() {
         </div>
 
         {/* STEP 3 — Skills */}
-        <div className="space-y-10">
-          <h2 className="text-xl font-medium">
+        <div className="space-y-16">
+          <h2 className="text-xl font-medium text-[#fa6d80]">
             Skills you have
           </h2>
-          <p className="text-gray-400 text-sm">
+          <p className="text-[#deeb24] text-sm">
             Select all that apply
           </p>
 
@@ -233,40 +233,40 @@ export default function Primary() {
         </div>
 
         {/* STEP 4 — Links */}
-        <div className="space-y-50">
+        <div className="space-y-16 mt-12">
           <h2 className="text-xl font-medium">
             Profiles & links
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <input
               name="github"
               value={form.links.github}
               onChange={handleChange}
               placeholder="GitHub profile URL"
-              className="rounded-xl bg-black/40 border border-white/10 px-5 py-3 focus:outline-none focus:border-white/30"
+              className="rounded-xl bg-[#5cc8c7]/20 border border-[#5cc8c7]/10 px-5 py-3 focus:outline-none focus:border-[#5cc8c7]/30 text-[#fbeda5]"
             />
             <input
               name="x"
               value={form.links.x}
               onChange={handleChange}
               placeholder="X (Twitter) profile URL"
-              className="rounded-xl bg-black/40 border border-white/10 px-5 py-3 focus:outline-none focus:border-white/30"
+              className="rounded-xl bg-[#5cc8c7]/20 border border-[#5cc8c7]/10 px-5 py-3 focus:outline-none focus:border-[#5cc8c7]/30 text-[#fbeda5]"
             />
             <input
               name="portfolio"
               value={form.links.portfolio}
               onChange={handleChange}
               placeholder="Portfolio website (optional)"
-              className="rounded-xl bg-black/50 border border-white/15 px-5 py-3 focus:outline-none focus:border-white/30"
+              className="rounded-xl bg-[#5cc8c7]/50 border border-[#5cc8c7]/15 px-5 py-3 focus:outline-none focus:border-[#5cc8c7]/30 text-[#fbeda5]"
             />
           </div>
         </div>
 
         {/* STEP 5 — Developer Type */}
-        <div className="space-y-6">
-          <h2 className="text-xl font-medium">What type of developer are you?</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="space-y-12">
+          <h2 className="text-xl font-medium text-[#fa6d80]">What type of developer are you?</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {developerTypes.map((type) => (
               <button
                 key={type.value}
@@ -274,8 +274,8 @@ export default function Primary() {
                 onClick={() => setForm({ ...form, developerType: type.value })}
                 className={`px-4 py-3 rounded-xl border transition ${
                   form.developerType === type.value
-                    ? "border-purple-500 bg-purple-500/20 text-white"
-                    : "border-white/10 bg-black/40 text-gray-400 hover:border-white/30"
+                    ? "border-[#fa6d80] bg-[#fa6d80]/20 text-[#fbeda5]"
+                    : "border-[#5cc8c7]/10 bg-[#425765]/40 text-[#deeb24] hover:border-[#5cc8c7]/30"
                 }`}
               >
                 {type.label}
@@ -285,14 +285,14 @@ export default function Primary() {
         </div>
 
         {/* STEP 6 — Continue */}
-        <div className="pt-6">
+        <div className="pt-16">
           {errors.submit && (
             <p className="text-red-400 text-sm mb-4">{errors.submit}</p>
           )}
           <button
             onClick={handleContinue}
             disabled={loading}
-            className="w-full rounded-xl bg-white text-black py-4 font-medium hover:bg-gray-200 transition disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full rounded-xl bg-[#deeb24] text-black py-4 font-medium hover:bg-[#fbeda5] transition disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? "Saving..." : "Continue →"}
           </button>

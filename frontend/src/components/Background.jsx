@@ -7,8 +7,8 @@ export default function Background() {
         direction="diagonal"
         speed={0.4}
         squareSize={40}
-        borderColor="#333"
-        hoverFillColor="#222"
+        borderColor="#5cc8c7"
+        hoverFillColor="#fa6d80"
       />
     </div>
   );

@@ -9,6 +9,12 @@
   font-family: "Anta", system-ui, sans-serif;
   line-height: 1.6;
   font-weight: 400;
+
+  --primary-dark: #425765;
+  --accent-teal: #5cc8c7;
+  --light-yellow: #fbeda5;
+  --pink-red: #fa6d80;
+  --yellow-green: #deeb24;
 }
 
 * {
@@ -22,8 +28,8 @@ body {
   width: 100%;
   min-height: 100%;
   overflow-x: hidden;
-  background-color: #060606;
-  color: white;
+  background-color: var(--primary-dark);
+  color: var(--light-yellow);
 }
 
 /* React root */
@@ -39,7 +45,7 @@ body {
   font-family: "BBH Bogle", sans-serif;
   font-weight: 400;
   text-transform: uppercase;
-  color: #ffffff;
+  color: var(--pink-red);
 }
 
 
@@ -63,13 +69,13 @@ body {
   font-family: "Sekuya", sans-serif;
   font-size: 112px;
   letter-spacing: 0.08em;
-  color: white;
+  color: var(--pink-red);
 }
 
 .mesh-subtitle {
   font-family: "Anta", sans-serif;
   font-size: 18px;
-  color: #aaa;
+  color: var(--yellow-green);
 }
 
 /* Utility */
