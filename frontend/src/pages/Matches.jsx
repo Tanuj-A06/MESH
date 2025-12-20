@@ -61,7 +61,7 @@ export default function Matches() {
   if (loading) {
     return (
       <div className="min-h-screen text-[#fbeda5] flex items-center justify-center">
-        <div className="text-xl text-[#5cc8c7]">Loading suggestions...</div>
+        <div className="text-xl text-[#fa6d80]">Loading suggestions...</div>
       </div>
     );
   }
@@ -69,21 +69,21 @@ export default function Matches() {
   return (
     <div className="relative min-h-screen text-[#fbeda5] px-12 pt-16">
       {/* Page heading */}
-      <div className="flex items-center justify-between mb-6">
-        <h1 className="font-heading text-4xl text-[#fa6d80]">Your Matches</h1>
+      <div className="flex items-center justify-between mb-8">
+        <h1 className="font-heading text-4xl text-[#fa6d80] leading-tight">Your Matches</h1>
         <button
           onClick={() => navigate("/dashboard")}
-          className="px-4 py-2 rounded-full bg-[#425765]/50 text-[#fbeda5] hover:bg-[#5cc8c7]/20"
+          className="px-6 py-3 rounded-full bg-[#425765]/50 text-[#fbeda5] hover:bg-[#5cc8c7]/20 transition"
         >
           Edit Profile
         </button>
       </div>
 
       {/* Tabs */}
-      <div className="flex gap-4 mb-8">
+      <div className="flex gap-6 mb-10">
         <button
           onClick={() => setActiveTab("suggestions")}
-          className={`px-6 py-2 rounded-full transition ${
+          className={`px-8 py-3 rounded-full transition font-medium ${
             activeTab === "suggestions"
               ? "bg-[#deeb24] text-black"
               : "bg-[#425765]/50 text-[#fbeda5] hover:bg-[#5cc8c7]/20"
@@ -93,7 +93,7 @@ export default function Matches() {
         </button>
         <button
           onClick={() => setActiveTab("matches")}
-          className={`px-6 py-2 rounded-full transition ${
+          className={`px-8 py-3 rounded-full transition font-medium ${
             activeTab === "matches"
               ? "bg-[#deeb24] text-black"
               : "bg-[#425765]/50 text-[#fbeda5] hover:bg-[#5cc8c7]/20"
@@ -107,9 +107,10 @@ export default function Matches() {
       {activeTab === "suggestions" && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {suggestions.length === 0 ? (
-            <p className="text-[#fa6d80] col-span-full">
-              No suggestions found. Complete your profile to get matched!
-            </p>
+            <div className="text-[#fa6d80] col-span-full text-center py-12">
+              <p className="text-xl font-medium mb-2">No suggestions found.</p>
+              <p className="text-[#fbeda5]/70">Complete your profile to get matched!</p>
+            </div>
           ) : (
             suggestions.map((profile) => (
               <motion.div
@@ -130,29 +131,29 @@ export default function Matches() {
 
                 <div className="relative z-10">
                   {/* Avatar */}
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-2xl font-bold mb-4">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-2xl font-bold mb-6">
                     {profile.user?.first_name?.[0] || "?"}
                   </div>
 
-                  <h2 className="text-xl font-semibold">
+                  <h2 className="text-xl font-semibold mb-2 leading-tight">
                     {profile.user?.first_name} {profile.user?.last_name?.[0]}.
                   </h2>
-                  <p className="text-sm text-gray-400 capitalize">
+                  <p className="text-sm text-gray-400 capitalize mb-4">
                     {profile.developer_type?.replace("_", " ") || "Developer"}
                   </p>
 
                   {/* Skills */}
-                  <div className="mt-4 flex flex-wrap gap-2">
+                  <div className="mb-6 flex flex-wrap gap-2">
                     {profile.skills?.slice(0, 4).map((skill) => (
                       <span
                         key={skill.id}
-                        className="text-xs px-2 py-1 rounded-full bg-white/10"
+                        className="text-xs px-3 py-1 rounded-full bg-white/10"
                       >
                         {skill.name}
                       </span>
                     ))}
                     {profile.skills?.length > 4 && (
-                      <span className="text-xs px-2 py-1 rounded-full bg-white/5 text-gray-500">
+                      <span className="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-500">
                         +{profile.skills.length - 4} more
                       </span>
                     )}
@@ -162,7 +163,7 @@ export default function Matches() {
                   <button
                     onClick={() => handleLike(profile.id)}
                     disabled={likedProfiles.has(profile.id)}
-                    className={`mt-4 w-full py-2 rounded-lg transition ${
+                    className={`w-full py-3 rounded-lg transition font-medium ${
                       likedProfiles.has(profile.id)
                         ? "bg-[#fa6d80]/20 text-[#fa6d80] cursor-default"
                         : "bg-gradient-to-r from-[#5cc8c7] to-[#fa6d80] hover:opacity-90"
@@ -181,9 +182,10 @@ export default function Matches() {
       {activeTab === "matches" && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {matches.length === 0 ? (
-            <p className="text-[#fa6d80] col-span-full">
-              No matches yet. Like profiles to get matched!
-            </p>
+            <div className="text-[#fa6d80] col-span-full text-center py-12">
+              <p className="text-xl font-medium mb-2">No matches yet.</p>
+              <p className="text-[#fbeda5]/70">Like profiles to get matched!</p>
+            </div>
           ) : (
             matches.map((match) => {
               // Determine which profile is the OTHER user (not the current user)
@@ -206,24 +208,24 @@ export default function Matches() {
                   </div>
 
                   <div className="relative z-10">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-green-400 to-teal-500 flex items-center justify-center text-2xl font-bold mb-4">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-green-400 to-teal-500 flex items-center justify-center text-2xl font-bold mb-6">
                       {otherProfile?.user?.first_name?.[0] || "?"}
                     </div>
 
-                    <h2 className="text-xl font-semibold">
+                    <h2 className="text-xl font-semibold mb-2 leading-tight">
                       {otherProfile?.user?.first_name}{" "}
                       {otherProfile?.user?.last_name?.[0]}.
                     </h2>
-                    <p className="text-sm text-gray-400 capitalize">
+                    <p className="text-sm text-gray-400 capitalize mb-4">
                       {otherProfile?.developer_type?.replace("_", " ") ||
                         "Developer"}
                     </p>
 
-                    <div className="mt-4 flex flex-wrap gap-2">
+                    <div className="mb-6 flex flex-wrap gap-2">
                       {otherProfile?.skills?.slice(0, 3).map((skill) => (
                         <span
                           key={skill.id}
-                          className="text-xs px-2 py-1 rounded-full bg-white/10"
+                          className="text-xs px-3 py-1 rounded-full bg-white/10"
                         >
                           {skill.name}
                         </span>
@@ -232,7 +234,7 @@ export default function Matches() {
 
                     <button
                       onClick={() => handleStartChat(match.id)}
-                      className="mt-4 w-full py-2 rounded-lg bg-gradient-to-r from-[#fa6d80] to-[#deeb24] hover:opacity-90 transition"
+                      className="w-full py-3 rounded-lg bg-gradient-to-r from-[#fa6d80] to-[#deeb24] hover:opacity-90 transition font-medium"
                     >
                       💬 Start Chat
                     </button>
