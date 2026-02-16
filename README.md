@@ -1,27 +1,27 @@
-# 🎯 MESH - Developer Teammate Matching Platform
+#  MESH - Developer Teammate Matching Platform
 
 MESH is a collaborative platform that helps developers discover compatible teammates based on skills, interests, and experience levels.
 
-## ✨ Features
+##  Features
 
 ### Core Features
-- ✅ **User Authentication** - Oauth to take in verified users
-- ✅ **Developer Profiles** - Comprehensive developer information
-- ✅ **Smart Matching** - Compatibility algorithm to find the best match
-- ✅ **Like System** - Like profiles you're interested in
-- ✅ **Mutual Matching** - Create matches when both users like each other
-- ✅ **In-App Chat** - Real-time messaging between matched developers
+-  **User Authentication** - Oauth to take in verified users
+-  **Developer Profiles** - Comprehensive developer information
+-  **Smart Matching** - Compatibility algorithm to find the best match
+-  **Like System** - Like profiles you're interested in
+-  **Mutual Matching** - Create matches when both users like each other
+-  **In-App Chat** - Real-time messaging between matched developers
 
 ### Additional Features
-- 🔐 Permission-based access control
-- 📊 Admin dashboard for management
-- 🎯 Detailed profile information (GitHub, Twitter, Portfolio)
-- ⚡ Skill-based filtering and matching
-- 📈 Compatibility scoring system
+-  Permission-based access control
+-  Admin dashboard for management
+-  Detailed profile information (GitHub, Twitter, Portfolio)
+-  Skill-based filtering and matching
+-  Compatibility scoring system
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 ### Backend
 - **Framework:** Django 4.2.7
@@ -37,7 +37,7 @@ MESH is a collaborative platform that helps developers discover compatible teamm
 - **Styling:** Tailwind CSS
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 - Python 3.8+
@@ -122,7 +122,7 @@ Frontend will run on: `http://localhost:5173` (Vite) or `http://localhost:3000` 
 
 ---
 
-## 🧠 Matching Algorithm
+##  Matching Algorithm
 
 The compatibility score is calculated as:
 
@@ -148,7 +148,7 @@ Where:
 
 ---
 
-## 🌍 Environment Variables
+##  Environment Variables
 
 ### Backend (.env or settings.py)
 ```
@@ -171,15 +171,15 @@ VITE_JWT_KEY=access_token
 ```
 
 
-## 🔐 Security Considerations
+##  Security Considerations
 
-- ✅ JWT token-based authentication
-- ✅ CORS validation
-- ✅ Permission-based access control
-- ✅ SQL injection protection (ORM)
-- ✅ CSRF protection enabled
+-  JWT token-based authentication
+-  CORS validation
+-  Permission-based access control
+-  SQL injection protection (ORM)
+-  CSRF protection enabled
 
-## 📊 Admin Dashboard
+##  Admin Dashboard
 
 Access at: `http://localhost:8000/admin/`
 
@@ -192,3 +192,4 @@ Access at: `http://localhost:8000/admin/`
 ---
 
 **Built with ❤️ for CC internal Hack**
+
