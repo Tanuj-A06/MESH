@@ -48,28 +48,28 @@ export default function Secondary() {
   };
 
   return (
-    <div className="min-h-screen text-[#fbeda5] flex justify-center items-center px-6">
-      <div className="absolute top-6 left-6 z-50">
+    <div className="min-h-screen text-[#1A1A1A] flex justify-center items-start px-8 md:px-16 py-20">
+      <div className="fixed top-8 left-8 z-50">
         <button
           onClick={() => navigate("/primary")}
-          className="px-4 py-2 rounded-full bg-[#425765]/50 text-[#fbeda5] hover:bg-[#5cc8c7]/20"
+          className="btn-outline px-5 py-2.5 text-sm"
         >
           ← Back
         </button>
       </div>
-      <div className="w-full max-w-3xl h-5/6 rounded-2xl bg-[#425765]/80 border border-[#5cc8c7]/10 px-12 py-16 space-y-20 overflow-y-auto">
+      <div className="w-full max-w-3xl bento-card px-10 md:px-14 py-12 space-y-10 overflow-y-auto">
 
-        <div className="space-y-16">
-          <h1 className="text-3xl font-semibold text-[#fa6d80]">
+        <div className="space-y-3">
+          <h1 className="text-3xl font-bold font-heading">
             What are you looking for?
           </h1>
-          <p className="text-[#deeb24]">
+          <p className="text-[#6B6B6B] text-base font-body">
             Tell us what skills you want in your teammates
           </p>
         </div>
 
-        <div className="space-y-16 mb-12">
-          <h2 className="text-xl font-medium text-[#fa6d80]">
+        <div className="space-y-4 mb-8">
+          <h2 className="text-xl font-semibold font-heading">
             Skills you want in teammates
           </h2>
 
@@ -79,18 +79,18 @@ export default function Secondary() {
           />
         </div>
 
-        <div className="space-y-12">
-          <h2 className="text-xl font-medium text-[#fa6d80]">Preferred teammate type</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="space-y-4">
+          <h2 className="text-xl font-semibold font-heading">Preferred teammate type</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {teammatePreferences.map((pref) => (
               <button
                 key={pref.value}
                 type="button"
                 onClick={() => setTeammatePreference(pref.value)}
-                className={`px-4 py-3 rounded-xl border transition ${
+                className={`px-4 py-2.5 rounded-full border text-sm font-medium transition-all duration-200 font-body ${
                   teammatePreference === pref.value
-                    ? "border-[#fa6d80] bg-[#fa6d80]/20 text-[#fbeda5]"
-                    : "border-[#5cc8c7]/10 bg-[#425765]/40 text-[#deeb24] hover:border-[#5cc8c7]/30"
+                    ? "border-[#1A1A1A] bg-[#1A1A1A] text-white"
+                    : "border-[#D5CFC5] bg-white text-[#1A1A1A] hover:border-[#1A1A1A]"
                 }`}
               >
                 {pref.label}
@@ -99,13 +99,13 @@ export default function Secondary() {
           </div>
         </div>
 
-        {error && <p className="text-red-400 text-sm">{error}</p>}
+        {error && <p className="text-[#E8734A] text-sm bg-[#FDF0EB] p-3 rounded-lg font-body">{error}</p>}
 
-        <div className="pt-16">
+        <div className="pt-4">
           <button
             onClick={handleContinue}
             disabled={loading}
-            className="w-full rounded-xl bg-[#deeb24] text-black py-4 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full btn-dark py-4 text-base disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? "Saving..." : "Find Matches →"}
           </button>

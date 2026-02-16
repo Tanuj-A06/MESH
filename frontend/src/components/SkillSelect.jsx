@@ -52,24 +52,24 @@ export default function SkillSelect({ selected, setSelected }) {
   };
 
   if (loading) {
-    return <div className="text-gray-500">Loading skills...</div>;
+    return <div className="text-[#9A9A9A] font-body">Loading skills...</div>;
   }
 
   return (
-    <div className="flex flex-wrap gap-4">
+    <div className="flex flex-wrap gap-3">
       {skills.map((skill) => (
         <button
           key={skill.id}
           type="button"
           onClick={() => toggleSkill(skill.id)}
-          className={`px-8 py-3 rounded-full border text-base font-medium transition
+          className={`px-5 py-2.5 rounded-full border text-sm font-medium transition-all duration-200 font-body
             ${
               selected.includes(skill.id)
-                ? "bg-white text-black border-white"
-                : "border-[#5cc8c7]/50 text-[#fbeda5] hover:border-[#5cc8c7]"
+                ? "bg-[#1A1A1A] text-white border-[#1A1A1A]"
+                : "bg-white text-[#1A1A1A] border-[#D5CFC5] hover:border-[#1A1A1A]"
             }`}
         >
-          {skill.icon && <span className="mr-1">{skill.icon}</span>}
+          {skill.icon && <span className="mr-1.5">{skill.icon}</span>}
           {skill.name}
         </button>
       ))}

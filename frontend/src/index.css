@@ -1,26 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap");
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@import url("https://fonts.googleapis.com/css2?family=BBH+Bogle&display=swap");
 
 :root {
-  font-family: "Anta", system-ui, sans-serif;
+  font-family: "Lato", system-ui, sans-serif;
   line-height: 1.6;
   font-weight: 400;
 
-  --primary-dark: #425765;
-  --accent-teal: #5cc8c7;
-  --light-yellow: #fbeda5;
-  --pink-red: #fa6d80;
-  --yellow-green: #deeb24;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  /* Clean modern warm palette */
+  --bg: #EDE8E0;
+  --card: #FFFFFF;
+  --card-border: #E0D8CD;
+  --text-primary: #1A1A1A;
+  --text-secondary: #6B6B6B;
+  --text-muted: #9A9A9A;
+  --accent: #E8734A;
+  --accent-hover: #D4642E;
+  --accent-light: #FDF0EB;
+  --green: #7BAF6E;
+  --green-light: #EAF4E6;
+  --dark-btn: #1A1A1A;
+  --dark-btn-hover: #333333;
+  --input-border: #D5CFC5;
+  --input-focus: #E8734A;
 }
 
 html,
@@ -28,11 +29,10 @@ body {
   width: 100%;
   min-height: 100%;
   overflow-x: hidden;
-  background-color: var(--primary-dark);
-  color: var(--light-yellow);
+  background-color: var(--bg);
+  color: var(--text-primary);
 }
 
-/* React root */
 #root {
   width: 100%;
   min-height: 100vh;
@@ -40,45 +40,98 @@ body {
   display: block;
 }
 
-/*  page headings except landing MESH */
-.page-heading {
-  font-family: "BBH Bogle", sans-serif;
-  font-weight: 400;
-  text-transform: uppercase;
-  color: var(--pink-red);
-}
-
-
-.page-heading-xl {
-  font-size: 4rem;
-  line-height: 1.1;
-}
-
-.page-heading-lg {
-  font-size: 3rem;
-  line-height: 1.2;
-}
-
-.page-heading-md {
-  font-size: 2.25rem;
-}
-
-/* landing page manh */
-
-.mesh-title {
-  font-family: "Sekuya", sans-serif;
-  font-size: 112px;
-  letter-spacing: 0.08em;
-  color: var(--pink-red);
-}
-
-.mesh-subtitle {
-  font-family: "Anta", sans-serif;
-  font-size: 18px;
-  color: var(--yellow-green);
-}
-
-/* Utility */
+/* Typography helpers */
 .font-heading {
-  font-family: "BBH Bogle", sans-serif;
+  font-family: "Playfair Display", serif;
+}
+
+.font-body {
+  font-family: "Lato", sans-serif;
+}
+
+/* Bento card */
+.bento-card {
+  background-color: var(--card);
+  border-radius: 1.25rem;
+  border: 1px solid var(--card-border);
+}
+
+/* Clean input */
+.clean-input {
+  width: 100%;
+  padding: 0.875rem 1.25rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--input-border);
+  background: var(--card);
+  color: var(--text-primary);
+  font-family: "Lato", sans-serif;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+  outline: none;
+}
+.clean-input:focus {
+  border-color: var(--accent);
+}
+.clean-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* Dark pill button */
+.btn-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  background: var(--dark-btn);
+  color: #FFFFFF;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  transition: background 0.2s;
+  border: none;
+  cursor: pointer;
+}
+.btn-dark:hover {
+  background: var(--dark-btn-hover);
+}
+
+/* Accent pill button */
+.btn-accent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  background: var(--accent);
+  color: #FFFFFF;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  transition: background 0.2s;
+  border: none;
+  cursor: pointer;
+}
+.btn-accent:hover {
+  background: var(--accent-hover);
+}
+
+/* Outline pill button */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  background: transparent;
+  color: var(--text-primary);
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  transition: all 0.2s;
+  border: 1px solid var(--card-border);
+  cursor: pointer;
+}
+.btn-outline:hover {
+  border-color: var(--text-primary);
 }

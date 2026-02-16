@@ -39,33 +39,42 @@ export default function Login() {
 
   return (
     <>
-      <div className="absolute top-6 left-6 z-50">
+      <div className="fixed top-8 left-8 z-50">
         <button
           onClick={() => navigate("/")}
-          className="px-4 py-2 rounded-full bg-[#425765]/50 text-[#fbeda5] hover:bg-[#5cc8c7]/20"
+          className="btn-outline px-5 py-2.5 text-sm"
         >
           ← Back
         </button>
       </div>
 
-      <div className="min-h-screen bg-[#425765] text-[#fbeda5] flex items-center justify-center p-16">
-        <div className="text-center max-w-md">
-          <h1 className="text-4xl mb-8 text-[#fa6d80]">Login</h1>
-          <p className="text-[#deeb24]">Sign in to continue and find your perfect dev match.</p>
+      <div className="min-h-screen text-[#1A1A1A] flex items-center justify-center px-8 md:px-16 py-20">
+        <div className="text-center max-w-md bento-card p-10">
+          <h1 className="text-4xl mb-4 text-[#1A1A1A] font-bold font-heading">Login</h1>
+          <p className="text-[#6B6B6B] text-base mb-8 font-body">Sign in to continue and find your perfect dev match.</p>
           
           {error && (
-            <p className="text-[#fa6d80] mt-6">{error}</p>
+            <p className="text-[#E8734A] mt-4 bg-[#FDF0EB] p-4 rounded-xl border border-[#E8734A]/30 text-sm font-body">{error}</p>
           )}
 
-          <div className="mt-12 space-y-6 text-[#deeb24]">
-            <p>✓ Connect with like-minded developers</p>
-            <p>✓ Find teammates for your projects</p>
-            <p>✓ Match based on skills you need</p>
+          <div className="mt-8 space-y-4 text-[#6B6B6B] text-sm font-body">
+            <p className="flex items-center justify-center gap-2">
+              <span className="text-[#7BAF6E] text-lg">✓</span>
+              <span>Connect with like-minded developers</span>
+            </p>
+            <p className="flex items-center justify-center gap-2">
+              <span className="text-[#7BAF6E] text-lg">✓</span>
+              <span>Find teammates for your projects</span>
+            </p>
+            <p className="flex items-center justify-center gap-2">
+              <span className="text-[#7BAF6E] text-lg">✓</span>
+              <span>Match based on skills you need</span>
+            </p>
           </div>
 
-          <div className="mt-12 flex justify-center">
+          <div className="mt-10 flex justify-center">
             {loading ? (
-              <div className="text-[#fbeda5]">Signing in...</div>
+              <div className="text-[#6B6B6B] text-base font-body">Signing in...</div>
             ) : (
               <GoogleLogin
                 onSuccess={handleSuccess}
