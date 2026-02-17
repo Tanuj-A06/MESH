@@ -62,7 +62,8 @@ class UserProfileListSerializer(serializers.ModelSerializer):
             'id', 'user', 'age', 'bio', 'profile_image',
             'developer_type', 'teammate_preference',
             'skills', 'years_of_experience',
-            'availability'
+            'availability',
+            'github_url', 'x_url', 'portfolio_url',
         ]
     
     def get_user(self, obj):

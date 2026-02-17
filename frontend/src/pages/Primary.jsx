@@ -130,93 +130,75 @@ export default function Primary() {
   ];
 
   return (
-    <div className="min-h-screen text-[#fbeda5] flex justify-center items-center px-6">
+    <div className="min-h-screen text-[#1A1A1A] flex justify-center items-start px-8 md:px-16 py-20">
       {/* Card wrapper */}
-      <div className="w-full max-w-3xl h-5/6 rounded-2xl bg-[#425765]/80 backdrop-blur-md border border-[#5cc8c7]/10 px-12 py-16 space-y-20 overflow-y-auto">
+      <div className="w-full max-w-3xl bento-card px-10 md:px-14 py-12 space-y-10 overflow-y-auto">
 
-        {/* STEP 1 — Header */}
-        <div className="space-y-16">
-          <h1
-            className="text-4xl font-semibold tracking-wide text-[#fa6d80]"
-          >
+        {/* Header */}
+        <div className="space-y-3">
+          <h1 className="text-3xl font-bold tracking-wide font-heading">
             Tell us about yourself
           </h1>
-
-          <p className="text-[#deeb24]">
+          <p className="text-[#6B6B6B] text-base font-body">
             This helps us build your MESH profile
-          </p>
-
-          <p className="text-sm text-gray-500">
-            
           </p>
         </div>
 
-        {/* STEP 2 — Basic Info */}
-        <div className="space-y-16">
+        {/* Basic Info */}
+        <div className="space-y-6">
           <div>
-            <label className="block mb-4 text-sm text-gray-300">
+            <label className="block mb-2 text-sm font-medium text-[#1A1A1A] font-body">
               Full Name
             </label>
             <input
               name="name"
               value={form.name}
               onChange={handleChange}
-              className="w-full rounded-xl bg-[#5cc8c7]/20 border border-[#5cc8c7]/10 px-5 py-3 focus:outline-none focus:border-[#5cc8c7]/30 text-[#fbeda5]"
+              className="clean-input"
               placeholder="e.g. Divyanshi Y"
             />
             {errors.name && (
-              <p className="text-red-400 text-sm mt-1">{errors.name}</p>
+              <p className="text-[#E8734A] text-sm mt-2 bg-[#FDF0EB] p-2 rounded-lg font-body">{errors.name}</p>
             )}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-4">
-
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             <div>
-              <label className="block mb-4 text-sm text-gray-300">
-                Age
-              </label>
+              <label className="block mb-2 text-sm font-medium text-[#1A1A1A] font-body">Age</label>
               <input
                 type="number"
                 name="age"
                 value={form.age}
                 onChange={handleChange}
-                className="w-full rounded-xl bg-[#5cc8c7]/20 border border-[#5cc8c7]/10 px-5 py-3 focus:outline-none focus:border-[#5cc8c7]/30 text-[#fbeda5]"
+                className="clean-input"
                 placeholder="20"
                 min="0"
               />
               {errors.age && (
-                <p className="text-red-400 text-sm mt-1">{errors.age}</p>
+                <p className="text-[#E8734A] text-sm mt-2 bg-[#FDF0EB] p-2 rounded-lg font-body">{errors.age}</p>
               )}
             </div>
 
             <div className="md:col-span-2">
-              <label className="block mb-4 text-sm text-gray-300">
-                Institution
-              </label>
+              <label className="block mb-2 text-sm font-medium text-[#1A1A1A] font-body">Institution</label>
               <input
                 name="institution"
                 value={form.institution}
                 onChange={handleChange}
-                className="w-full rounded-xl bg-[#5cc8c7]/20 border border-[#5cc8c7]/10 px-5 py-3 focus:outline-none focus:border-[#5cc8c7]/30 text-[#fbeda5]"
+                className="clean-input"
                 placeholder="e.g. K J Somaiya College of Engineering"
               />
               {errors.institution && (
-                <p className="text-red-400 text-sm mt-1">
-                  {errors.institution}
-                </p>
+                <p className="text-[#E8734A] text-sm mt-2 bg-[#FDF0EB] p-2 rounded-lg font-body">{errors.institution}</p>
               )}
             </div>
           </div>
         </div>
 
-        {/* STEP 3 — Skills */}
-        <div className="space-y-16">
-          <h2 className="text-xl font-medium text-[#fa6d80]">
-            Skills you have
-          </h2>
-          <p className="text-[#deeb24] text-sm">
-            Select all that apply
-          </p>
+        {/* Skills */}
+        <div className="space-y-4">
+          <h2 className="text-xl font-semibold font-heading">Skills you have</h2>
+          <p className="text-[#6B6B6B] text-sm font-body">Select all that apply</p>
 
           <SkillSelect
             selected={form.skillsHave}
@@ -226,56 +208,52 @@ export default function Primary() {
           />
 
           {errors.skillsHave && (
-            <p className="text-red-400 text-sm">
-              {errors.skillsHave}
-            </p>
+            <p className="text-[#E8734A] text-sm bg-[#FDF0EB] p-3 rounded-lg font-body">{errors.skillsHave}</p>
           )}
         </div>
 
-        {/* STEP 4 — Links */}
-        <div className="space-y-16 mt-12">
-          <h2 className="text-xl font-medium">
-            Profiles & links
-          </h2>
+        {/* Links */}
+        <div className="space-y-4">
+          <h2 className="text-xl font-semibold font-heading">Profiles & links</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <input
               name="github"
               value={form.links.github}
               onChange={handleChange}
               placeholder="GitHub profile URL"
-              className="rounded-xl bg-[#5cc8c7]/20 border border-[#5cc8c7]/10 px-5 py-3 focus:outline-none focus:border-[#5cc8c7]/30 text-[#fbeda5]"
+              className="clean-input"
             />
             <input
               name="x"
               value={form.links.x}
               onChange={handleChange}
               placeholder="X (Twitter) profile URL"
-              className="rounded-xl bg-[#5cc8c7]/20 border border-[#5cc8c7]/10 px-5 py-3 focus:outline-none focus:border-[#5cc8c7]/30 text-[#fbeda5]"
+              className="clean-input"
             />
             <input
               name="portfolio"
               value={form.links.portfolio}
               onChange={handleChange}
               placeholder="Portfolio website (optional)"
-              className="rounded-xl bg-[#5cc8c7]/50 border border-[#5cc8c7]/15 px-5 py-3 focus:outline-none focus:border-[#5cc8c7]/30 text-[#fbeda5]"
+              className="clean-input"
             />
           </div>
         </div>
 
-        {/* STEP 5 — Developer Type */}
-        <div className="space-y-12">
-          <h2 className="text-xl font-medium text-[#fa6d80]">What type of developer are you?</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {/* Developer Type */}
+        <div className="space-y-4">
+          <h2 className="text-xl font-semibold font-heading">What type of developer are you?</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {developerTypes.map((type) => (
               <button
                 key={type.value}
                 type="button"
                 onClick={() => setForm({ ...form, developerType: type.value })}
-                className={`px-4 py-3 rounded-xl border transition ${
+                className={`px-4 py-2.5 rounded-full border text-sm font-medium transition-all duration-200 font-body ${
                   form.developerType === type.value
-                    ? "border-[#fa6d80] bg-[#fa6d80]/20 text-[#fbeda5]"
-                    : "border-[#5cc8c7]/10 bg-[#425765]/40 text-[#deeb24] hover:border-[#5cc8c7]/30"
+                    ? "border-[#1A1A1A] bg-[#1A1A1A] text-white"
+                    : "border-[#D5CFC5] bg-white text-[#1A1A1A] hover:border-[#1A1A1A]"
                 }`}
               >
                 {type.label}
@@ -284,17 +262,17 @@ export default function Primary() {
           </div>
         </div>
 
-        {/* STEP 6 — Continue */}
-        <div className="pt-16">
+        {/* Continue */}
+        <div className="pt-4">
           {errors.submit && (
-            <p className="text-red-400 text-sm mb-4">{errors.submit}</p>
+            <p className="text-[#E8734A] text-sm mb-4 bg-[#FDF0EB] p-3 rounded-lg font-body">{errors.submit}</p>
           )}
           <button
             onClick={handleContinue}
             disabled={loading}
-            className="w-full rounded-xl bg-[#deeb24] text-black py-4 font-medium hover:bg-[#fbeda5] transition disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full btn-dark py-4 text-base disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {loading ? "Saving..." : "Continue →"}
+            {loading ? "Saving..." : "Continue \u2192"}
           </button>
         </div>
 

@@ -70,7 +70,7 @@ class UserProfileViewSet(viewsets.ModelViewSet):
                 status=status.HTTP_404_NOT_FOUND
             )
         
-        suggestions = get_top_suggestions(profile, limit=10)
+        suggestions = get_top_suggestions(profile, limit=4)
         
         result = []
         for suggested_user, score in suggestions:
